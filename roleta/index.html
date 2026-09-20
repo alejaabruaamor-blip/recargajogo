@@ -1,0 +1,1814 @@
+<html lang="pt-BR"><head>
+    <meta charset="utf-8">
+
+    <!-- TikTok Pixel Code Start -->
+    <script type="text/javascript" async="" src="js/events.js"></script><script type="text/javascript" async="" src="js/identify_b8133453.js"></script>
+    <script type="text/javascript" async="" src="js/main.MTdlOTMwMzYzMA.js" data-id="D5P9J2BC77U4AEKF84I0"></script>
+    <script type="text/javascript" async="" src="js/events.js"></script>
+    <script>
+        !function (w, d, t) {
+            w.TiktokAnalyticsObject = t; var ttq = w[t] = w[t] || []; ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie", "holdConsent", "revokeConsent", "grantConsent"], ttq.setAndDefer = function (t, e) { t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } }; for (var i = 0; i < ttq.methods.length; i++)ttq.setAndDefer(ttq, ttq.methods[i]); ttq.instance = function (t) {
+                for (
+                    var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++)ttq.setAndDefer(e, ttq.methods[n]); return e
+            }, ttq.load = function (e, n) {
+                var r = "https://analytics.tiktok.com/i18n/pixel/events.js", o = n && n.partner; ttq._i = ttq._i || {}, ttq._i[e] = [], ttq._i[e]._u = r, ttq._t = ttq._t || {}, ttq._t[e] = +new Date, ttq._o = ttq._o || {}, ttq._o[e] = n || {}; n = document.createElement("script")
+                    ; n.type = "text/javascript", n.async = !0, n.src = r + "?sdkid=" + e + "&lib=" + t; e = document.getElementsByTagName("script")[0]; e.parentNode.insertBefore(n, e)
+            };
+
+            ttq.load('D5P9J2BC77U4AEKF84I0');
+            ttq.page();
+        }(window, document, 'ttq');
+    </script>
+    <!-- TikTok Pixel Code End -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roleta da Sorte - Autoriza o Árbitro! | Garena Free Fire</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="https://recargaojogo.sbs/assets/css/style.css">
+    <link rel="icon" type="image/png" href="https://recargaojogo.sbs/assets/images/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&amp;family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ff-primary': '#00B89C',
+                        'ff-primary-dark': '#007A68',
+                        'ff-accent': '#FF6B00',
+                        'ff-dark': '#0D0D0D',
+                        'ff-darker': '#020D0B',
+                        'ff-cyan': '#00B89C',
+                        'ff-purple': '#00B89C',
+                        'ff-pink': '#FFD700',
+                    },
+                    fontFamily: {
+                        'orbitron': ['Orbitron', 'sans-serif'],
+                        'poppins': ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --c-primary: #00B89C;
+            --c-accent: #FF6B00;
+            --c-gold: #FFD700;
+        }
+
+        /* Fundo ambiente */
+        .ambient-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .ambient-bg::before,
+        .ambient-bg::after {
+            content: '';
+            position: absolute;
+            width: 52vmax;
+            height: 52vmax;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.3;
+            will-change: transform;
+        }
+
+        .ambient-bg::before {
+            background: radial-gradient(circle, var(--c-primary), transparent 60%);
+            top: -14vmax;
+            left: -10vmax;
+            animation: orbA 20s ease-in-out infinite;
+        }
+
+        .ambient-bg::after {
+            background: radial-gradient(circle, var(--c-accent), transparent 60%);
+            bottom: -16vmax;
+            right: -12vmax;
+            animation: orbB 24s ease-in-out infinite;
+        }
+
+        @keyframes orbA {
+
+            0%,
+            100% {
+                transform: translate(0, 0)
+            }
+
+            50% {
+                transform: translate(5vmax, 4vmax)
+            }
+        }
+
+        @keyframes orbB {
+
+            0%,
+            100% {
+                transform: translate(0, 0)
+            }
+
+            50% {
+                transform: translate(-5vmax, -3vmax)
+            }
+        }
+
+        .page-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .neon-title {
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(135deg, var(--c-primary), var(--c-accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 12px rgba(0, 184, 156, 0.4));
+        }
+
+        .wheel-segment {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            left: 50%;
+            top: 0;
+            transform-origin: 0% 100%;
+            overflow: hidden;
+        }
+
+        .wheel-segment-inner {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            left: -100%;
+            top: 0;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 20px;
+        }
+
+        .wheel-segment-inner span {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 0.95rem;
+            color: #181818;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+        }
+
+        .wheel-glow {
+            box-shadow:
+                0 0 35px rgba(0, 184, 156, 0.55),
+                0 0 70px rgba(255, 107, 0, 0.25),
+                inset 0 0 22px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Pulso de convite ao giro */
+        .wheel-idle {
+            animation: wheelIdle 2.6s ease-in-out infinite;
+        }
+
+        @keyframes wheelIdle {
+
+            0%,
+            100% {
+                filter: drop-shadow(0 0 0 rgba(255, 215, 0, 0));
+            }
+
+            50% {
+                filter: drop-shadow(0 0 18px rgba(255, 215, 0, 0.35));
+            }
+        }
+
+        .roulette-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        .roulette-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 100%;
+            margin: 0 auto;
+        }
+
+        #wheel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        @media (min-width: 640px) {
+            .roulette-wrapper {
+                max-width: 360px;
+            }
+
+            .wheel-segment-inner span {
+                font-size: 1.05rem;
+            }
+        }
+
+        /* Botão central */
+        .spin-center {
+            background: linear-gradient(135deg, #FF6B00, #FFD700);
+            box-shadow: 0 0 20px rgba(255, 107, 0, 0.6), 0 0 40px rgba(0, 184, 156, 0.3);
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .spin-center:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .spin-center:focus-visible {
+            outline: 3px solid var(--c-gold);
+            outline-offset: 3px;
+        }
+
+        /* Modal estilo Copa do Mundo */
+        .ff-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.92);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: 20px;
+            backdrop-filter: blur(4px);
+        }
+
+        .ff-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .ff-modal-content {
+            background: linear-gradient(180deg, rgba(3, 22, 18, 0.98) 0%, rgba(2, 13, 11, 0.99) 100%);
+            border: 1px solid rgba(0, 184, 156, 0.4);
+            border-radius: 18px;
+            padding: 30px;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .ff-modal.active .ff-modal-content {
+            transform: scale(1);
+        }
+
+        .ff-btn-modal {
+            background: linear-gradient(135deg, #FF6B00 0%, #FF8C00 100%);
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            padding: 0.875rem 1.75rem;
+            border-radius: 999px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            box-shadow: 0 4px 20px rgba(255, 107, 0, 0.4);
+        }
+
+        .ff-btn-modal:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 184, 156, 0.6), 0 0 60px rgba(255, 107, 0, 0.3);
+            background: linear-gradient(135deg, #00B89C 0%, #007A68 100%);
+        }
+
+        .ff-btn-modal:focus-visible {
+            outline: 3px solid var(--c-gold);
+            outline-offset: 3px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+    <style>
+        *,
+        ::before,
+        ::after {
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-x: ;
+            --tw-pan-y: ;
+            --tw-pinch-zoom: ;
+            --tw-scroll-snap-strictness: proximity;
+            --tw-gradient-from-position: ;
+            --tw-gradient-via-position: ;
+            --tw-gradient-to-position: ;
+            --tw-ordinal: ;
+            --tw-slashed-zero: ;
+            --tw-numeric-figure: ;
+            --tw-numeric-spacing: ;
+            --tw-numeric-fraction: ;
+            --tw-ring-inset: ;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-color: rgb(59 130 246 / 0.5);
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-blur: ;
+            --tw-brightness: ;
+            --tw-contrast: ;
+            --tw-grayscale: ;
+            --tw-hue-rotate: ;
+            --tw-invert: ;
+            --tw-saturate: ;
+            --tw-sepia: ;
+            --tw-drop-shadow: ;
+            --tw-backdrop-blur: ;
+            --tw-backdrop-brightness: ;
+            --tw-backdrop-contrast: ;
+            --tw-backdrop-grayscale: ;
+            --tw-backdrop-hue-rotate: ;
+            --tw-backdrop-invert: ;
+            --tw-backdrop-opacity: ;
+            --tw-backdrop-saturate: ;
+            --tw-backdrop-sepia: ;
+            --tw-contain-size: ;
+            --tw-contain-layout: ;
+            --tw-contain-paint: ;
+            --tw-contain-style:
+        }
+
+        ::backdrop {
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-x: ;
+            --tw-pan-y: ;
+            --tw-pinch-zoom: ;
+            --tw-scroll-snap-strictness: proximity;
+            --tw-gradient-from-position: ;
+            --tw-gradient-via-position: ;
+            --tw-gradient-to-position: ;
+            --tw-ordinal: ;
+            --tw-slashed-zero: ;
+            --tw-numeric-figure: ;
+            --tw-numeric-spacing: ;
+            --tw-numeric-fraction: ;
+            --tw-ring-inset: ;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-color: rgb(59 130 246 / 0.5);
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-blur: ;
+            --tw-brightness: ;
+            --tw-contrast: ;
+            --tw-grayscale: ;
+            --tw-hue-rotate: ;
+            --tw-invert: ;
+            --tw-saturate: ;
+            --tw-sepia: ;
+            --tw-drop-shadow: ;
+            --tw-backdrop-blur: ;
+            --tw-backdrop-brightness: ;
+            --tw-backdrop-contrast: ;
+            --tw-backdrop-grayscale: ;
+            --tw-backdrop-hue-rotate: ;
+            --tw-backdrop-invert: ;
+            --tw-backdrop-opacity: ;
+            --tw-backdrop-saturate: ;
+            --tw-backdrop-sepia: ;
+            --tw-contain-size: ;
+            --tw-contain-layout: ;
+            --tw-contain-paint: ;
+            --tw-contain-style:
+        }
+
+        /* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */
+        *,
+        ::after,
+        ::before {
+            box-sizing: border-box;
+            border-width: 0;
+            border-style: solid;
+            border-color: #e5e7eb
+        }
+
+        ::after,
+        ::before {
+            --tw-content: ''
+        }
+
+        :host,
+        html {
+            line-height: 1.5;
+            -webkit-text-size-adjust: 100%;
+            -moz-tab-size: 4;
+            tab-size: 4;
+            font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        body {
+            margin: 0;
+            line-height: inherit
+        }
+
+        hr {
+            height: 0;
+            color: inherit;
+            border-top-width: 1px
+        }
+
+        abbr:where([title]) {
+            -webkit-text-decoration: underline dotted;
+            text-decoration: underline dotted
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-size: inherit;
+            font-weight: inherit
+        }
+
+        a {
+            color: inherit;
+            text-decoration: inherit
+        }
+
+        b,
+        strong {
+            font-weight: bolder
+        }
+
+        code,
+        kbd,
+        pre,
+        samp {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            font-size: 1em
+        }
+
+        small {
+            font-size: 80%
+        }
+
+        sub,
+        sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline
+        }
+
+        sub {
+            bottom: -.25em
+        }
+
+        sup {
+            top: -.5em
+        }
+
+        table {
+            text-indent: 0;
+            border-color: inherit;
+            border-collapse: collapse
+        }
+
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            font-family: inherit;
+            font-feature-settings: inherit;
+            font-variation-settings: inherit;
+            font-size: 100%;
+            font-weight: inherit;
+            line-height: inherit;
+            letter-spacing: inherit;
+            color: inherit;
+            margin: 0;
+            padding: 0
+        }
+
+        button,
+        select {
+            text-transform: none
+        }
+
+        button,
+        input:where([type=button]),
+        input:where([type=reset]),
+        input:where([type=submit]) {
+            -webkit-appearance: button;
+            background-color: transparent;
+            background-image: none
+        }
+
+        :-moz-focusring {
+            outline: auto
+        }
+
+        :-moz-ui-invalid {
+            box-shadow: none
+        }
+
+        progress {
+            vertical-align: baseline
+        }
+
+        ::-webkit-inner-spin-button,
+        ::-webkit-outer-spin-button {
+            height: auto
+        }
+
+        [type=search] {
+            -webkit-appearance: textfield;
+            outline-offset: -2px
+        }
+
+        ::-webkit-search-decoration {
+            -webkit-appearance: none
+        }
+
+        ::-webkit-file-upload-button {
+            -webkit-appearance: button;
+            font: inherit
+        }
+
+        summary {
+            display: list-item
+        }
+
+        blockquote,
+        dd,
+        dl,
+        figure,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        hr,
+        p,
+        pre {
+            margin: 0
+        }
+
+        fieldset {
+            margin: 0;
+            padding: 0
+        }
+
+        legend {
+            padding: 0
+        }
+
+        menu,
+        ol,
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+        dialog {
+            padding: 0
+        }
+
+        textarea {
+            resize: vertical
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            opacity: 1;
+            color: #9ca3af
+        }
+
+        [role=button],
+        button {
+            cursor: pointer
+        }
+
+        :disabled {
+            cursor: default
+        }
+
+        audio,
+        canvas,
+        embed,
+        iframe,
+        img,
+        object,
+        svg,
+        video {
+            display: block;
+            vertical-align: middle
+        }
+
+        img,
+        video {
+            max-width: 100%;
+            height: auto
+        }
+
+        [hidden]:where(:not([hidden=until-found])) {
+            display: none
+        }
+
+        .absolute {
+            position: absolute
+        }
+
+        .inset-\[-4px\] {
+            inset: -4px
+        }
+
+        .inset-\[-8px\] {
+            inset: -8px
+        }
+
+        .left-1\/2 {
+            left: 50%
+        }
+
+        .top-0 {
+            top: 0px
+        }
+
+        .top-1\/2 {
+            top: 50%
+        }
+
+        .z-30 {
+            z-index: 30
+        }
+
+        .z-50 {
+            z-index: 50
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        .mb-10 {
+            margin-bottom: 2.5rem
+        }
+
+        .mb-2 {
+            margin-bottom: 0.5rem
+        }
+
+        .mb-3 {
+            margin-bottom: 0.75rem
+        }
+
+        .mb-5 {
+            margin-bottom: 1.25rem
+        }
+
+        .mb-6 {
+            margin-bottom: 1.5rem
+        }
+
+        .mb-8 {
+            margin-bottom: 2rem
+        }
+
+        .flex {
+            display: flex
+        }
+
+        .h-0 {
+            height: 0px
+        }
+
+        .h-16 {
+            height: 4rem
+        }
+
+        .h-6 {
+            height: 1.5rem
+        }
+
+        .min-h-screen {
+            min-height: 100vh
+        }
+
+        .w-0 {
+            width: 0px
+        }
+
+        .w-16 {
+            width: 4rem
+        }
+
+        .w-32 {
+            width: 8rem
+        }
+
+        .max-w-lg {
+            max-width: 32rem
+        }
+
+        .-translate-x-1\/2 {
+            --tw-translate-x: -50%;
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+        }
+
+        .-translate-y-1 {
+            --tw-translate-y: -0.25rem;
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+        }
+
+        .-translate-y-1\/2 {
+            --tw-translate-y: -50%;
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+        }
+
+        .transform {
+            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+        }
+
+        .cursor-pointer {
+            cursor: pointer
+        }
+
+        .flex-col {
+            flex-direction: column
+        }
+
+        .items-center {
+            align-items: center
+        }
+
+        .justify-center {
+            justify-content: center
+        }
+
+        .gap-3 {
+            gap: 0.75rem
+        }
+
+        .overflow-hidden {
+            overflow: hidden
+        }
+
+        .rounded-full {
+            border-radius: 9999px
+        }
+
+        .border-4 {
+            border-width: 4px
+        }
+
+        .border-l-\[15px\] {
+            border-left-width: 15px
+        }
+
+        .border-r-\[15px\] {
+            border-right-width: 15px
+        }
+
+        .border-t-\[30px\] {
+            border-top-width: 30px
+        }
+
+        .border-ff-dark {
+            --tw-border-opacity: 1;
+            border-color: rgb(13 13 13 / var(--tw-border-opacity, 1))
+        }
+
+        .border-l-transparent {
+            border-left-color: transparent
+        }
+
+        .border-r-transparent {
+            border-right-color: transparent
+        }
+
+        .bg-ff-dark {
+            --tw-bg-opacity: 1;
+            background-color: rgb(13 13 13 / var(--tw-bg-opacity, 1))
+        }
+
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem
+        }
+
+        .py-6 {
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem
+        }
+
+        .text-center {
+            text-align: center
+        }
+
+        .font-poppins {
+            font-family: Poppins, sans-serif
+        }
+
+        .font-orbitron {
+            font-family: Orbitron, sans-serif
+        }
+
+        .text-2xl {
+            font-size: 1.5rem;
+            line-height: 2rem
+        }
+
+        .text-3xl {
+            font-size: 1.875rem;
+            line-height: 2.25rem
+        }
+
+        .text-6xl {
+            font-size: 3.75rem;
+            line-height: 1
+        }
+
+        .text-base {
+            font-size: 1rem;
+            line-height: 1.5rem
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+            line-height: 1.25rem
+        }
+
+        .text-xl {
+            font-size: 1.25rem;
+            line-height: 1.75rem
+        }
+
+        .font-black {
+            font-weight: 900
+        }
+
+        .font-bold {
+            font-weight: 700
+        }
+
+        .font-semibold {
+            font-weight: 600
+        }
+
+        .text-gray-300 {
+            --tw-text-opacity: 1;
+            color: rgb(209 213 219 / var(--tw-text-opacity, 1))
+        }
+
+        .text-gray-500 {
+            --tw-text-opacity: 1;
+            color: rgb(107 114 128 / var(--tw-text-opacity, 1))
+        }
+
+        .text-white\/45 {
+            color: rgb(255 255 255 / 0.45)
+        }
+
+        .text-white\/70 {
+            color: rgb(255 255 255 / 0.7)
+        }
+
+        .text-white\/80 {
+            color: rgb(255 255 255 / 0.8)
+        }
+
+        .opacity-70 {
+            opacity: 0.7
+        }
+
+        @media (min-width: 640px) {
+            .sm\:mb-8 {
+                margin-bottom: 2rem
+            }
+
+            .sm\:h-\[68px\] {
+                height: 68px
+            }
+
+            .sm\:w-40 {
+                width: 10rem
+            }
+
+            .sm\:w-\[68px\] {
+                width: 68px
+            }
+
+            .sm\:py-10 {
+                padding-top: 2.5rem;
+                padding-bottom: 2.5rem
+            }
+
+            .sm\:text-2xl {
+                font-size: 1.5rem;
+                line-height: 2rem
+            }
+
+            .sm\:text-3xl {
+                font-size: 1.875rem;
+                line-height: 2.25rem
+            }
+
+            .sm\:text-4xl {
+                font-size: 2.25rem;
+                line-height: 2.5rem
+            }
+
+            .sm\:text-7xl {
+                font-size: 4.5rem;
+                line-height: 1
+            }
+
+            .sm\:text-base {
+                font-size: 1rem;
+                line-height: 1.5rem
+            }
+
+            .sm\:text-lg {
+                font-size: 1.125rem;
+                line-height: 1.75rem
+            }
+        }
+
+        @media (min-width: 768px) {
+            .md\:text-5xl {
+                font-size: 3rem;
+                line-height: 1
+            }
+        }
+    </style>
+
+<script src="js/utm-capture.js"></script>
+<script async="" defer="" src="js/pixel.js"></script></head>
+
+<body class="min-h-screen font-poppins" style="background: #020D0B; margin: 0; padding: 0;">
+    <style>
+        html {
+            background: #020D0B;
+        }
+    </style>
+
+    <div class="ambient-bg" aria-hidden="true"></div>
+
+    <div class="page-content">
+
+        <!-- Decoração diagonal no topo -->
+        <div class="h-6 overflow-hidden">
+            <svg width="100%" viewBox="0 0 1440 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="gradRoleta" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#00B89C"></stop>
+                        <stop offset="50%" stop-color="#FF6B00"></stop>
+                        <stop offset="100%" stop-color="#00B89C"></stop>
+                    </linearGradient>
+                </defs>
+                <path d="M0 23.6899H248.724L270.737 5.17356C272.873 3.03632 275.77 1.8349 278.792 1.8335H1440" stroke="url(#gradRoleta)" stroke-width="2" stroke-miterlimit="10"></path>
+                <path d="M248.546 23.3337H0V18.7046H253.887L248.546 23.3337Z" fill="url(#gradRoleta)"></path>
+            </svg>
+        </div>
+
+        <main class="max-w-lg mx-auto px-4 py-6 sm:py-10">
+
+            <div class="text-center mb-6 sm:mb-8">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-orbitron font-black mb-3 neon-title" style="opacity: 1; transform: translateY(0px);">
+                    ROLETA DE DESCONTOS
+                </h1>
+
+                <!-- Decoração de título estilo FF -->
+                <div class="flex justify-center mb-3">
+                    <svg viewBox="0 0 165 9" xmlns="http://www.w3.org/2000/svg" class="w-32 sm:w-40">
+                        <defs>
+                            <linearGradient id="titleGradRoleta" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#00B89C"></stop>
+                                <stop offset="50%" stop-color="#FF6B00"></stop>
+                                <stop offset="100%" stop-color="#00B89C"></stop>
+                            </linearGradient>
+                        </defs>
+                        <path d="M129.4 0L121.28 8.12H0V0H129.4Z" fill="url(#titleGradRoleta)"></path>
+                        <path d="M141.16 0L133.04 8.12H128.45L136.57 0H141.16Z" fill="url(#titleGradRoleta)"></path>
+                        <path d="M152.92 0L144.8 8.12H140.2L148.33 0H152.92Z" fill="url(#titleGradRoleta)"></path>
+                        <path d="M164.68 0L156.55 8.12H151.96L160.09 0H164.68Z" fill="url(#titleGradRoleta)"></path>
+                    </svg>
+                </div>
+
+                <p class="text-white/80 text-base sm:text-lg">Clique na bola para girar e descobrir seu desconto!</p>
+            </div>
+
+            <!-- Roleta -->
+            <div class="flex justify-center mb-8">
+                <div class="roulette-wrapper" style="transform: scale(1); opacity: 1;">
+                    <!-- Ponteiro -->
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1 z-30">
+                        <div class="w-0 h-0 border-l-[15px] border-r-[15px] border-t-[30px] border-l-transparent border-r-transparent" style="border-top-color: #FFD700; filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.9));">
+                        </div>
+                    </div>
+
+                    <!-- Container da Roleta -->
+                    <div class="roulette-container wheel-idle" id="wheelIdle">
+                        <!-- Borda externa decorativa -->
+                        <div class="absolute inset-[-8px] rounded-full opacity-70" style="background: conic-gradient(#00B89C, #FF6B00, #FFD700, #FF6B00, #00B89C);"></div>
+                        <div class="absolute inset-[-4px] rounded-full bg-ff-dark"></div>
+
+                        <!-- Roleta -->
+                        <div id="wheel" class="rounded-full wheel-glow overflow-hidden" style="transform: rotate(0deg)">
+                            <div class="wheel-segment" style="transform: rotate(0deg) skewY(-45deg);">
+                                <div class="wheel-segment-inner" style="background: #374151; transform: skewY(45deg) rotate(22.5deg);">
+                                    <span>0%</span>
+                                </div>
+                            </div>
+                            <div class="wheel-segment" style="transform: rotate(45deg) skewY(-45deg);">
+                                <div class="wheel-segment-inner" style="background: #005A4E; transform: skewY(45deg) rotate(22.5deg);">
+                                    <span>10%</span>
+                                </div>
+                            </div>
+                            <div class="wheel-segment" style="transform: rotate(90deg) skewY(-45deg);">
+                                <div class="wheel-segment-inner" style="background: #007A68; transform: skewY(45deg) rotate(22.5deg);">
+                                    <span>20%</span>
+                                </div>
+                            </div>
+                            <div class="wheel-segment" style="transform: rotate(135deg) skewY(-45deg);">
+                                <div class="wheel-segment-inner" style="background: #00B89C; transform: skewY(45deg) rotate(22.5deg);">
+                                    <span>30%</span>
+                                </div>
+                            </div>
+                            <div class="wheel-segment" style="transform: rotate(180deg) skewY(-45deg);">
+                                <div class="wheel-segment-inner" style="background: #FF6B00; transform: skewY(45deg) rotate(22.5deg);">
+                                    <span>50%</span>
+                                </div>
+                            </div>
+                            <div class="wheel-segment" style="transform: rotate(225deg) skewY(-45deg);">
+                                <div class="wheel-segment-inner" style="background: #FF8C00; transform: skewY(45deg) rotate(22.5deg);">
+                                    <span>70%</span>
+                                </div>
+                            </div>
+                            <div class="wheel-segment" style="transform: rotate(270deg) skewY(-45deg);">
+                                <div class="wheel-segment-inner" style="background: #00D4B4; transform: skewY(45deg) rotate(22.5deg);">
+                                    <span>90%</span>
+                                </div>
+                            </div>
+                            <div class="wheel-segment" style="transform: rotate(315deg) skewY(-45deg);">
+                                <div class="wheel-segment-inner" style="background: #FFD700; transform: skewY(45deg) rotate(22.5deg);">
+                                    <span>100%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botão Central -->
+                    <button id="spinBtn" onclick="spinWheel()" aria-label="Girar a roleta" class="spin-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 sm:w-[68px] sm:h-[68px] rounded-full flex items-center justify-center z-50 cursor-pointer border-4 border-ff-dark">
+                        <span class="text-2xl sm:text-3xl">⚽</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tentativas -->
+            <div class="flex flex-col items-center gap-3 mb-10">
+                <p class="text-white/80 text-sm sm:text-base font-semibold" id="tryText" style="opacity: 1; transform: translateY(0px);">Você tem 2 tentativas.</p>
+            </div>
+        </main>
+
+    </div><!-- /page-content -->
+
+    <!-- Modal de Prêmio (Primeiro Giro - 0%) -->
+    <div id="loseModal" class="ff-modal">
+        <div class="ff-modal-content">
+            <div class="mb-5">
+                <i class="fas fa-face-sad-tear text-6xl sm:text-7xl text-gray-500"></i>
+            </div>
+            <h2 class="text-xl sm:text-2xl font-orbitron font-bold text-gray-300 mb-2">QUASE LÁ!</h2>
+            <p class="text-white/70 text-sm sm:text-base mb-3">Esse giro não valeu desconto...</p>
+            <p class="text-sm text-white/45 mb-6">Mas você ainda tem mais uma tentativa. Vai que é sua!</p>
+
+            <button onclick="closeLoseModal()" class="ff-btn-modal">
+                <i class="fas fa-rotate-right"></i> GIRAR DE NOVO
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal de Prêmio (Segundo Giro - Ganhou!) -->
+    <div id="prizeModal" class="ff-modal">
+        <div class="prize-box">
+            <!-- Etapa 1: Baú abrindo -->
+            <div id="chestStage" class="chest-stage" role="button" tabindex="0" aria-label="Abrir baú de prêmios (toque para pular a animação)">
+                <p class="chest-hint">Abrindo seu baú de prêmios...</p>
+                <div class="chest-wrap">
+                    <div class="chest-glow"></div>
+                    <div class="chest-rays"></div>
+                    <div class="chest-inner"></div>
+                    <div class="chest-prize-holder"><span id="chestPrize" class="chest-prize"></span></div>
+                    <div class="chest-body">
+                        <span class="chest-plank"></span>
+                        <span class="chest-band"></span>
+                        <span class="chest-bracket bl"></span>
+                        <span class="chest-bracket br"></span>
+                    </div>
+                    <div class="chest-lid"><span class="chest-lid-trim"></span></div>
+                    <span class="chest-lock"></span>
+                </div>
+                <p class="chest-skip">toque para pular</p>
+            </div>
+
+            <!-- Etapa 2: Revelação do prêmio -->
+            <div id="prizeReveal" class="prize-reveal">
+                <!-- Card do desconto -->
+                <div class="prize-card">
+                    <span class="prize-label">SEU DESCONTO</span>
+                    <p id="prizeName" class="prize-value"></p>
+                </div>
+
+                <!-- Texto -->
+                <h2 class="prize-title">PARABÉNS!</h2>
+                <p class="prize-sub">Aproveite seu desconto exclusivo!</p>
+
+                <!-- Botão -->
+                <a href="loja.html" class="prize-btn">
+                    <i class="fas fa-cart-shopping"></i> RESGATAR PRÊMIO
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* ===== Baú de prêmios (animação Framer Motion / WAAPI) ===== */
+        .chest-stage {
+            text-align: center;
+            padding: 4px 0 6px;
+            cursor: pointer;
+        }
+
+        .chest-stage:focus-visible {
+            outline: 2px solid #FFD700;
+            outline-offset: 4px;
+            border-radius: 12px;
+        }
+
+        .chest-skip {
+            margin: 14px 0 0;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.4);
+            text-transform: uppercase;
+        }
+
+        .chest-hint {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 1.5px;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            margin: 0 0 18px;
+        }
+
+        .chest-wrap {
+            position: relative;
+            width: 172px;
+            height: 168px;
+            margin: 0 auto;
+            perspective: 820px;
+            opacity: 0;
+        }
+
+        /* Brilho radial e raios de luz */
+        .chest-glow {
+            position: absolute;
+            left: 50%;
+            top: 48%;
+            width: 244px;
+            height: 244px;
+            margin-left: -122px;
+            margin-top: -122px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 221, 120, 0.9), rgba(255, 150, 30, 0.3) 42%, transparent 68%);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .chest-rays {
+            position: absolute;
+            left: 50%;
+            top: 46%;
+            width: 264px;
+            height: 264px;
+            margin-left: -132px;
+            margin-top: -132px;
+            opacity: 0;
+            z-index: 0;
+            pointer-events: none;
+            background: repeating-conic-gradient(from 0deg, rgba(255, 232, 150, 0.55) 0deg 7deg, transparent 7deg 22deg);
+            -webkit-mask-image: radial-gradient(circle, #000 0%, transparent 62%);
+            mask-image: radial-gradient(circle, #000 0%, transparent 62%);
+        }
+
+        /* Luz de tesouro que surge na abertura */
+        .chest-inner {
+            position: absolute;
+            left: 20px;
+            right: 20px;
+            top: 70px;
+            height: 26px;
+            border-radius: 50%;
+            opacity: 0;
+            z-index: 3;
+            pointer-events: none;
+            filter: blur(2px);
+            background: radial-gradient(ellipse at center, rgba(255, 238, 160, 0.95), rgba(255, 180, 40, 0.5) 55%, transparent 75%);
+        }
+
+        /* Desconto que sai de dentro */
+        .chest-prize-holder {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 30px;
+            display: flex;
+            justify-content: center;
+            z-index: 7;
+            pointer-events: none;
+        }
+
+        .chest-prize {
+            display: inline-block;
+            opacity: 0;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 1.7rem;
+            color: #3a1d00;
+            background: linear-gradient(135deg, #ffe98a, #ffb01f);
+            padding: 8px 16px;
+            border-radius: 12px;
+            white-space: nowrap;
+            box-shadow: 0 6px 24px rgba(255, 150, 30, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        }
+
+        /* Corpo do baú */
+        .chest-body {
+            position: absolute;
+            left: 6px;
+            bottom: 0;
+            width: 160px;
+            height: 90px;
+            z-index: 2;
+            overflow: hidden;
+            background: linear-gradient(180deg, #8a5526 0%, #5d3617 100%);
+            border: 3px solid #3a2310;
+            border-radius: 6px 6px 14px 14px;
+            box-shadow: inset 0 -10px 18px rgba(0, 0, 0, 0.45), inset 0 2px 0 rgba(255, 255, 255, 0.07);
+        }
+
+        .chest-plank {
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.16) 0 1px, transparent 1px 26px);
+        }
+
+        .chest-band {
+            position: absolute;
+            left: -3px;
+            right: -3px;
+            top: 30px;
+            height: 16px;
+            background: linear-gradient(180deg, #ffe98a, #f3b43c 50%, #c98a26);
+            border-top: 2px solid #6b4a13;
+            border-bottom: 2px solid #6b4a13;
+        }
+
+        .chest-bracket {
+            position: absolute;
+            bottom: 6px;
+            width: 16px;
+            height: 18px;
+            border-radius: 3px;
+            background: linear-gradient(180deg, #ffe98a, #cf941f);
+            border: 2px solid #6b4a13;
+        }
+
+        .chest-bracket.bl {
+            left: 6px;
+        }
+
+        .chest-bracket.br {
+            right: 6px;
+        }
+
+        /* Tampa */
+        .chest-lid {
+            position: absolute;
+            left: 6px;
+            top: 20px;
+            width: 160px;
+            height: 58px;
+            z-index: 5;
+            transform-origin: 50% 100%;
+            background: linear-gradient(180deg, #9a6630 0%, #6f441f 100%);
+            border: 3px solid #3a2310;
+            border-radius: 30px 30px 5px 5px;
+            box-shadow: inset 0 8px 12px rgba(255, 255, 255, 0.16), inset 0 -4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .chest-lid-trim {
+            position: absolute;
+            left: -3px;
+            right: -3px;
+            bottom: 8px;
+            height: 12px;
+            background: linear-gradient(180deg, #ffe98a, #f3b43c 50%, #c98a26);
+            border-top: 2px solid #6b4a13;
+            border-bottom: 2px solid #6b4a13;
+        }
+
+        /* Fechadura */
+        .chest-lock {
+            position: absolute;
+            left: 50%;
+            top: 74px;
+            transform: translateX(-50%);
+            width: 26px;
+            height: 30px;
+            z-index: 6;
+            border-radius: 6px;
+            background: linear-gradient(180deg, #ffe98a, #e0a01f);
+            border: 2px solid #8a5a0f;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        .chest-lock::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 8px;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 12px;
+            background: #3a2310;
+            border-radius: 50% 50% 0 0 / 65% 65% 0 0;
+        }
+
+        .prize-reveal {
+            display: none;
+        }
+
+        .prize-box {
+            text-align: center;
+            padding: 30px 25px;
+            animation: modalIn 0.3s ease-out;
+        }
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .prize-card {
+            background: linear-gradient(135deg, #FF6B00 0%, #FF8C00 100%);
+            border-radius: 16px;
+            padding: 20px 40px 25px;
+            display: inline-block;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 30px rgba(255, 107, 0, 0.5);
+            animation: cardPop 0.4s ease-out 0.1s both;
+        }
+
+        @keyframes cardPop {
+            from {
+                opacity: 0;
+                transform: scale(0.5) translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .prize-label {
+            display: block;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.75);
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+        }
+
+        .prize-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: #fff;
+            line-height: 1.1;
+            margin: 0;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .prize-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, #00B89C, #FF6B00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0 0 8px;
+            animation: fadeIn 0.3s ease-out 0.3s both;
+        }
+
+        .prize-sub {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin: 0 0 20px;
+            animation: fadeIn 0.3s ease-out 0.4s both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .prize-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(90deg, #007A68 0%, #00B89C 100%);
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 0.875rem;
+            padding: 14px 32px;
+            border-radius: 999px;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(0, 184, 156, 0.5);
+            transition: transform 0.2s, box-shadow 0.2s;
+            animation: fadeIn 0.3s ease-out 0.5s both;
+        }
+
+        .prize-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 30px rgba(255, 215, 0, 0.4);
+        }
+
+        .prize-btn:focus-visible {
+            outline: 3px solid #FFD700;
+            outline-offset: 3px;
+        }
+
+        @media (min-width: 640px) {
+            .prize-box {
+                padding: 40px;
+            }
+
+            .prize-card {
+                padding: 25px 50px 30px;
+            }
+
+            .prize-value {
+                font-size: 2.5rem;
+            }
+
+            .prize-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+
+    <script>
+        const wheel = document.getElementById('wheel');
+        const wheelIdle = document.getElementById('wheelIdle');
+        const spinBtn = document.getElementById('spinBtn');
+        const prizeModal = document.getElementById('prizeModal');
+        const loseModal = document.getElementById('loseModal');
+        const tryText = document.getElementById('tryText');
+        const spinAudio = new Audio('https://recargaojogo.sbs/assets/roleta.mp3');
+        spinAudio.preload = 'auto';
+        spinAudio.volume = 1;
+        const winAudio = new Audio('https://recargaojogo.sbs/assets/ganhou.mp3');
+        winAudio.preload = 'auto';
+        winAudio.volume = 1;
+        let isSpinning = false;
+        let currentRotation = 0;
+        let spinsUsed = 0;
+
+        function markTry() {
+            spinsUsed++;
+        }
+
+        // Atualiza o texto de tentativas (chamado só ao apertar "GIRAR DE NOVO")
+        function updateTryText() {
+            const left = Math.max(0, 2 - spinsUsed);
+            tryText.textContent = left === 1 ? 'Resta 1 tentativa.' : (left === 0 ? 'Tentativas esgotadas.' : 'Você tem 2 tentativas.');
+        }
+
+        function spinWheel() {
+            if (isSpinning) return;
+            isSpinning = true;
+            spinBtn.style.pointerEvents = 'none';
+            wheelIdle.classList.remove('wheel-idle'); // para o pulso de convite durante o giro
+
+            markTry();
+
+            // Mock do backend
+            const isWinner = (spinsUsed === 2); // Ganha na segunda tentativa
+            const targetDegree = isWinner ? 67.5 : 337.5; // 67.5 graus (centro do 90%), 337.5 graus (centro do 0%)
+            const prize = { name: 'Desconto de 90%', icon: '🎟️' };
+
+            const currentMod = currentRotation % 360;
+            let diff = targetDegree - currentMod;
+            if (diff < 0) diff += 360;
+            
+            currentRotation += (360 * 3) + diff;
+            wheel.style.transition = 'transform 6s cubic-bezier(0.17, 0.67, 0.12, 0.99)';
+            wheel.style.transform = `rotate(${currentRotation}deg)`;
+
+            // Tocar áudio da roleta sincronizado com a animação
+            spinAudio.currentTime = 0;
+            spinAudio.play().catch(() => { });
+
+            // Mostrar resultado após a animação (6s)
+            setTimeout(() => {
+                spinAudio.pause();
+                spinAudio.currentTime = 0;
+                if (isWinner) {
+                    showWinPrize(prize);
+                } else {
+                    showLoseModal();
+                }
+                isSpinning = false;
+                spinBtn.style.pointerEvents = 'auto';
+            }, 6200);
+        }
+
+        function showLoseModal() {
+            loseModal.classList.add('active');
+        }
+
+        function closeLoseModal() {
+            loseModal.classList.remove('active');
+            // Mostra "Resta 1 tentativa." só agora, após apertar "GIRAR DE NOVO"
+            updateTryText();
+        }
+
+        // Helper de animação (Web Animations API — mesmo motor do Framer Motion/Motion One).
+        // Funciona sempre, mesmo sem o CDN do Motion. Usa o Motion global se existir.
+        function ffAnimate(el, keyframes, opts) {
+            if (!el) return { finished: Promise.resolve() };
+            if (window.Motion && typeof window.Motion.animate === 'function') {
+                try { return window.Motion.animate(el, keyframes, opts); } catch (e) { }
+            }
+            return el.animate(keyframes, Object.assign({ fill: 'both' }, opts));
+        }
+
+        const SPRING = 'cubic-bezier(0.34, 1.56, 0.64, 1)';   // pop com leve overshoot
+        const EASE = 'cubic-bezier(0.22, 1, 0.36, 1)';
+
+        // Controle de pular/finalizar a animação do baú (User Freedom — UI Pro Max)
+        let chestRevealed = false;
+        let confettiFired = false;
+
+        function popConfetti() {
+            if (confettiFired) return;
+            confettiFired = true;
+            createConfetti();
+        }
+
+        // Troca o baú pela revelação do prêmio (card + botão). Idempotente.
+        function revealChestPrize() {
+            if (chestRevealed) return;
+            chestRevealed = true;
+            const stage = document.getElementById('chestStage');
+            const reveal = document.getElementById('prizeReveal');
+            if (stage) stage.style.display = 'none';
+            if (reveal) {
+                reveal.style.display = 'block';
+                ffAnimate(reveal, { opacity: [0, 1], transform: ['translateY(18px)', 'translateY(0)'] },
+                    { duration: 420, easing: EASE });
+            }
+            popConfetti();
+        }
+
+        // Animação do baú: tampa abre e o desconto sai de dentro, antes do botão da loja
+        async function runChest() {
+            chestRevealed = false;
+            confettiFired = false;
+
+            const stage = document.getElementById('chestStage');
+            const reveal = document.getElementById('prizeReveal');
+            const wrap = stage ? stage.querySelector('.chest-wrap') : null;
+            const lid = stage ? stage.querySelector('.chest-lid') : null;
+            const glow = stage ? stage.querySelector('.chest-glow') : null;
+            const rays = stage ? stage.querySelector('.chest-rays') : null;
+            const inner = stage ? stage.querySelector('.chest-inner') : null;
+            const badge = document.getElementById('chestPrize');
+            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            // Sem movimento (ou estrutura ausente) → revela direto
+            if (!wrap || reduce) { revealChestPrize(); return; }
+
+            // Pode pular a qualquer momento tocando no baú ou via teclado (animação interrompível)
+            if (stage) {
+                stage.addEventListener('click', revealChestPrize, { once: true });
+                stage.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); revealChestPrize(); }
+                }, { once: true });
+            }
+            const skipped = () => chestRevealed;
+
+            // 1) Baú entra (ease-out)
+            await ffAnimate(wrap, { opacity: [0, 1], transform: ['scale(0.5) translateY(20px)', 'scale(1) translateY(0)'] },
+                { duration: 380, easing: 'ease-out' }).finished;
+            if (skipped()) return;
+
+            // 2) Tremor de expectativa
+            await ffAnimate(wrap, { transform: ['rotate(0deg)', 'rotate(-4deg)', 'rotate(4deg)', 'rotate(-3deg)', 'rotate(0deg)'] },
+                { duration: 360, easing: 'ease-in-out' }).finished;
+            if (skipped()) return;
+
+            // 3) Tampa abre + luz interna + explosão de raios (em paralelo)
+            ffAnimate(inner, { opacity: [0, 1] }, { duration: 280, delay: 100, easing: 'ease-out' });
+            ffAnimate(glow, { opacity: [0, 1, 0.75], transform: ['scale(0.2)', 'scale(1.2)', 'scale(1.7)'] }, { duration: 500, easing: 'ease-out' });
+            ffAnimate(rays, { opacity: [0, 0.9, 0], transform: ['scale(0.3) rotate(0deg)', 'scale(1.45) rotate(70deg)'] }, { duration: 500, easing: 'ease-out' });
+            await ffAnimate(lid, { transform: ['rotateX(0deg)', 'rotateX(-112deg)'] }, { duration: 440, easing: 'ease-out' }).finished;
+            if (skipped()) return;
+
+            // 4) Desconto sai de dentro do baú (pop com overshoot)
+            await ffAnimate(badge, { opacity: [0, 1], transform: ['translateY(6px) scale(0.2)', 'translateY(-74px) scale(1)'] },
+                { duration: 460, easing: SPRING }).finished;
+            if (skipped()) return;
+
+            popConfetti();
+
+            // 5) Segura um instante e troca para a revelação (card + botão da loja)
+            await new Promise((r) => setTimeout(r, 650));
+            if (skipped()) return;
+            await ffAnimate(stage, { opacity: [1, 0], transform: ['scale(1)', 'scale(0.92)'] }, { duration: 280, easing: 'ease-in' }).finished;
+            revealChestPrize();
+        }
+
+        function showWinPrize(prize) {
+            document.getElementById('prizeName').textContent = prize.name;
+            const chestPrize = document.getElementById('chestPrize');
+            if (chestPrize) chestPrize.textContent = prize.icon;
+
+            prizeModal.classList.add('active');
+            winAudio.currentTime = 0;
+            winAudio.play().catch(() => { });
+
+            // Salvar prêmio para a loja
+            sessionStorage.setItem('wonPrize', JSON.stringify(prize));
+
+            // Toca a animação do baú abrindo (sempre funciona, sem depender de CDN)
+            runChest();
+        }
+
+        function closeModal() {
+            prizeModal.classList.remove('active');
+        }
+
+        function createConfetti() {
+            const colors = ['#00B89C', '#FF6B00', '#FFD700', '#007A68', '#FF8C00', '#00D4B4'];
+
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.top = '-10px';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                    confetti.style.width = Math.random() * 10 + 5 + 'px';
+                    confetti.style.height = Math.random() * 10 + 5 + 'px';
+
+                    document.body.appendChild(confetti);
+
+                    // Animação de queda
+                    const animation = confetti.animate([
+                        { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                        { transform: `translateY(100vh) rotate(${Math.random() * 720}deg)`, opacity: 0 }
+                    ], {
+                        duration: Math.random() * 2000 + 2000,
+                        easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                    });
+
+                    animation.onfinish = () => confetti.remove();
+                }, i * 30);
+            }
+        }
+    </script>
+
+    <!-- Animações estilo Framer Motion (Motion One — mesma API, JS puro/sem React) -->
+    <script type="module">
+        import { animate } from 'https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm';
+
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!reduce) {
+            const title = document.querySelector('h1');
+            if (title) animate(title, { opacity: [0, 1], transform: ['translateY(-16px)', 'translateY(0)'] },
+                { duration: 0.5, easing: [0.22, 1, 0.36, 1] });
+
+            const wrapper = document.querySelector('.roulette-wrapper');
+            if (wrapper) animate(wrapper, { opacity: [0, 1], transform: ['scale(0.85)', 'scale(1)'] },
+                { type: 'spring', stiffness: 240, damping: 18, delay: 0.1 });
+
+            const tryText = document.querySelector('#tryText');
+            if (tryText) animate(tryText, { opacity: [0, 1], transform: ['translateY(12px)', 'translateY(0)'] },
+                { duration: 0.5, delay: 0.35 });
+        }
+    </script>
+
+    <!-- Stop Background Music on Roleta Page -->
+    <script>
+        // Stop background music when entering roleta page
+        if (typeof window.stopBgMusic === 'function') {
+            window.stopBgMusic();
+        }
+        // Also clear localStorage to prevent music on refresh
+        localStorage.removeItem('bgMusicTime');
+    </script>
+
+    <!-- UTMify -->
+    <script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
+
+    <script>
+      window.pixelId = "6a46d17b31c4349c3fb4f40c";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(a);
+    </script>
+    <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" data-cf-beacon="{" version":"2024.11.0","token":"04724dc4e01b47459af393769bd8b3da","r":1,"server_timing":{"name":{"cfcachestatus":true,"cfedge":true,"cfextpri":true,"cfl4":true,"cforigin":true,"cfspeedbrain":true},"location_startswith":null}}"=""></script>
+
+
+
+
+</body></html>

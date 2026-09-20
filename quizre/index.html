@@ -1,0 +1,1248 @@
+<html lang="pt-BR"><head>
+    <meta charset="utf-8">
+
+    <!-- TikTok Pixel Code Start -->
+    <script type="text/javascript" async="" src="js/events.js"></script><script type="text/javascript" async="" src="js/identify_b8133453.js"></script>
+    <script type="text/javascript" async="" src="js/main.MTdlOTMwMzYzMA.js" data-id="D5P9J2BC77U4AEKF84I0"></script>
+    <script type="text/javascript" async="" src="js/events.js"></script>
+    <script>
+        !function (w, d, t) {
+            w.TiktokAnalyticsObject = t; var ttq = w[t] = w[t] || []; ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie", "holdConsent", "revokeConsent", "grantConsent"], ttq.setAndDefer = function (t, e) { t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } }; for (var i = 0; i < ttq.methods.length; i++)ttq.setAndDefer(ttq, ttq.methods[i]); ttq.instance = function (t) {
+                for (
+                    var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++)ttq.setAndDefer(e, ttq.methods[n]); return e
+            }, ttq.load = function (e, n) {
+                var r = "https://analytics.tiktok.com/i18n/pixel/events.js", o = n && n.partner; ttq._i = ttq._i || {}, ttq._i[e] = [], ttq._i[e]._u = r, ttq._t = ttq._t || {}, ttq._t[e] = +new Date, ttq._o = ttq._o || {}, ttq._o[e] = n || {}; n = document.createElement("script")
+                    ; n.type = "text/javascript", n.async = !0, n.src = r + "?sdkid=" + e + "&lib=" + t; e = document.getElementsByTagName("script")[0]; e.parentNode.insertBefore(n, e)
+            };
+
+            ttq.load('D5P9J2BC77U4AEKF84I0');
+            ttq.page();
+        }(window, document, 'ttq');
+    </script>
+    <!-- TikTok Pixel Code End -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Autoriza o Árbitro! - Free Fire | Garena</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="https://recargaojogo.sbs/assets/css/style.css">
+    <link rel="icon" type="image/png" href="https://recargaojogo.sbs/assets/images/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&amp;family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ff-primary': '#00B89C',
+                        'ff-primary-dark': '#007A68',
+                        'ff-accent': '#FF6B00',
+                        'ff-dark': '#0D0D0D',
+                        'ff-darker': '#020D0B',
+                        'ff-cyan': '#00B89C',
+                        'ff-purple': '#00B89C',
+                        'ff-pink': '#FFD700',
+                        'ff-gold': '#FFD700',
+                    },
+                    fontFamily: {
+                        'orbitron': ['Orbitron', 'sans-serif'],
+                        'poppins': ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* ============================================================
+           QUIZ — Autoriza o Árbitro (redesign UI/UX Pro Max)
+           ============================================================ */
+        :root {
+            --c-primary: #00B89C;
+            --c-accent: #FF6B00;
+            --c-gold: #FFD700;
+        }
+
+        /* Fundo ambiente */
+        .ambient-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .ambient-bg::before,
+        .ambient-bg::after {
+            content: '';
+            position: absolute;
+            width: 50vmax;
+            height: 50vmax;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.28;
+            will-change: transform;
+        }
+
+        .ambient-bg::before {
+            background: radial-gradient(circle, var(--c-primary), transparent 60%);
+            top: -14vmax;
+            left: -10vmax;
+            animation: orbA 20s ease-in-out infinite;
+        }
+
+        .ambient-bg::after {
+            background: radial-gradient(circle, var(--c-accent), transparent 60%);
+            bottom: -16vmax;
+            right: -12vmax;
+            animation: orbB 24s ease-in-out infinite;
+        }
+
+        @keyframes orbA {
+
+            0%,
+            100% {
+                transform: translate(0, 0)
+            }
+
+            50% {
+                transform: translate(5vmax, 4vmax)
+            }
+        }
+
+        @keyframes orbB {
+
+            0%,
+            100% {
+                transform: translate(0, 0)
+            }
+
+            50% {
+                transform: translate(-5vmax, -3vmax)
+            }
+        }
+
+        .page-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .neon-title {
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(135deg, var(--c-primary), var(--c-accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 12px rgba(0, 184, 156, 0.4));
+        }
+
+        /* Barra de progresso */
+        .progress-track {
+            height: 10px;
+            width: 100%;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            overflow: hidden;
+            border: 1px solid rgba(0, 184, 156, 0.2);
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--c-primary), var(--c-accent), var(--c-gold));
+            border-radius: 999px;
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 14px rgba(0, 184, 156, 0.5);
+        }
+
+        .score-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 0.4rem 0.9rem;
+            border-radius: 999px;
+            color: #FFD700;
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.35);
+            white-space: nowrap;
+        }
+
+        .ff-quiz-card {
+            background: linear-gradient(145deg, rgba(3, 22, 18, 0.9) 0%, rgba(2, 13, 11, 0.95) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 184, 156, 0.35);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 0 30px rgba(0, 184, 156, 0.05);
+        }
+
+        .ff-quiz-option {
+            background: rgba(3, 22, 18, 0.8);
+            border: 2px solid rgba(0, 184, 156, 0.28);
+            border-radius: 14px;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+        }
+
+        .ff-quiz-option:hover {
+            border-color: rgba(255, 107, 0, 0.8);
+            background: rgba(0, 60, 48, 0.8);
+            transform: translateX(8px);
+            box-shadow: 0 4px 22px rgba(0, 184, 156, 0.3);
+        }
+
+        .ff-quiz-option:focus-visible {
+            outline: 3px solid var(--c-gold);
+            outline-offset: 2px;
+        }
+
+        .ff-quiz-option.correct {
+            background: #15803d !important;
+            border-color: #22c55e !important;
+            box-shadow: 0 0 24px rgba(34, 197, 94, 0.5) !important;
+        }
+
+        .ff-quiz-option.incorrect {
+            background: #991b1b !important;
+            border-color: #ef4444 !important;
+            box-shadow: 0 0 24px rgba(239, 68, 68, 0.5) !important;
+        }
+
+        .ff-quiz-option.selected {
+            background: rgba(0, 184, 156, 0.2);
+            border-color: rgba(255, 107, 0, 0.8);
+            transform: translateX(8px);
+        }
+
+        .ff-quiz-option .opt-letter {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            color: #021;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, var(--c-primary), var(--c-accent));
+            transition: transform 0.2s ease;
+        }
+
+        .ff-quiz-option:hover .opt-letter {
+            transform: scale(1.08);
+        }
+
+        .ff-question-number {
+            background: linear-gradient(135deg, var(--c-primary), var(--c-accent));
+            color: #021;
+        }
+
+        .ff-result-btn {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #FF6B00 0%, #FF8C00 100%);
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            padding: 1rem 2rem;
+            border-radius: 999px;
+            text-transform: uppercase;
+            transition: transform .25s ease, box-shadow .25s ease, background .35s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 4px 20px rgba(255, 107, 0, 0.4);
+        }
+
+        .ff-result-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+            transform: skewX(-20deg);
+            animation: shine 3s ease-in-out infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                left: -120%
+            }
+
+            55%,
+            100% {
+                left: 160%
+            }
+        }
+
+        .ff-result-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 184, 156, 0.6);
+            background: linear-gradient(135deg, #00B89C 0%, #007A68 100%);
+        }
+
+        .ff-result-btn:focus-visible {
+            outline: 3px solid var(--c-gold);
+            outline-offset: 3px;
+        }
+
+        @keyframes popIn {
+            from {
+                opacity: 0;
+                transform: scale(0.96) translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .pop-in {
+            animation: popIn 0.4s ease-out;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .ff-quiz-option:hover,
+            .ff-result-btn:hover {
+                transform: none;
+            }
+        }
+    </style>
+
+    <style>
+        *,
+        ::before,
+        ::after {
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-x: ;
+            --tw-pan-y: ;
+            --tw-pinch-zoom: ;
+            --tw-scroll-snap-strictness: proximity;
+            --tw-gradient-from-position: ;
+            --tw-gradient-via-position: ;
+            --tw-gradient-to-position: ;
+            --tw-ordinal: ;
+            --tw-slashed-zero: ;
+            --tw-numeric-figure: ;
+            --tw-numeric-spacing: ;
+            --tw-numeric-fraction: ;
+            --tw-ring-inset: ;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-color: rgb(59 130 246 / 0.5);
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-blur: ;
+            --tw-brightness: ;
+            --tw-contrast: ;
+            --tw-grayscale: ;
+            --tw-hue-rotate: ;
+            --tw-invert: ;
+            --tw-saturate: ;
+            --tw-sepia: ;
+            --tw-drop-shadow: ;
+            --tw-backdrop-blur: ;
+            --tw-backdrop-brightness: ;
+            --tw-backdrop-contrast: ;
+            --tw-backdrop-grayscale: ;
+            --tw-backdrop-hue-rotate: ;
+            --tw-backdrop-invert: ;
+            --tw-backdrop-opacity: ;
+            --tw-backdrop-saturate: ;
+            --tw-backdrop-sepia: ;
+            --tw-contain-size: ;
+            --tw-contain-layout: ;
+            --tw-contain-paint: ;
+            --tw-contain-style:
+        }
+
+        ::backdrop {
+            --tw-border-spacing-x: 0;
+            --tw-border-spacing-y: 0;
+            --tw-translate-x: 0;
+            --tw-translate-y: 0;
+            --tw-rotate: 0;
+            --tw-skew-x: 0;
+            --tw-skew-y: 0;
+            --tw-scale-x: 1;
+            --tw-scale-y: 1;
+            --tw-pan-x: ;
+            --tw-pan-y: ;
+            --tw-pinch-zoom: ;
+            --tw-scroll-snap-strictness: proximity;
+            --tw-gradient-from-position: ;
+            --tw-gradient-via-position: ;
+            --tw-gradient-to-position: ;
+            --tw-ordinal: ;
+            --tw-slashed-zero: ;
+            --tw-numeric-figure: ;
+            --tw-numeric-spacing: ;
+            --tw-numeric-fraction: ;
+            --tw-ring-inset: ;
+            --tw-ring-offset-width: 0px;
+            --tw-ring-offset-color: #fff;
+            --tw-ring-color: rgb(59 130 246 / 0.5);
+            --tw-ring-offset-shadow: 0 0 #0000;
+            --tw-ring-shadow: 0 0 #0000;
+            --tw-shadow: 0 0 #0000;
+            --tw-shadow-colored: 0 0 #0000;
+            --tw-blur: ;
+            --tw-brightness: ;
+            --tw-contrast: ;
+            --tw-grayscale: ;
+            --tw-hue-rotate: ;
+            --tw-invert: ;
+            --tw-saturate: ;
+            --tw-sepia: ;
+            --tw-drop-shadow: ;
+            --tw-backdrop-blur: ;
+            --tw-backdrop-brightness: ;
+            --tw-backdrop-contrast: ;
+            --tw-backdrop-grayscale: ;
+            --tw-backdrop-hue-rotate: ;
+            --tw-backdrop-invert: ;
+            --tw-backdrop-opacity: ;
+            --tw-backdrop-saturate: ;
+            --tw-backdrop-sepia: ;
+            --tw-contain-size: ;
+            --tw-contain-layout: ;
+            --tw-contain-paint: ;
+            --tw-contain-style:
+        }
+
+        /* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */
+        *,
+        ::after,
+        ::before {
+            box-sizing: border-box;
+            border-width: 0;
+            border-style: solid;
+            border-color: #e5e7eb
+        }
+
+        ::after,
+        ::before {
+            --tw-content: ''
+        }
+
+        :host,
+        html {
+            line-height: 1.5;
+            -webkit-text-size-adjust: 100%;
+            -moz-tab-size: 4;
+            tab-size: 4;
+            font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        body {
+            margin: 0;
+            line-height: inherit
+        }
+
+        hr {
+            height: 0;
+            color: inherit;
+            border-top-width: 1px
+        }
+
+        abbr:where([title]) {
+            -webkit-text-decoration: underline dotted;
+            text-decoration: underline dotted
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-size: inherit;
+            font-weight: inherit
+        }
+
+        a {
+            color: inherit;
+            text-decoration: inherit
+        }
+
+        b,
+        strong {
+            font-weight: bolder
+        }
+
+        code,
+        kbd,
+        pre,
+        samp {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-feature-settings: normal;
+            font-variation-settings: normal;
+            font-size: 1em
+        }
+
+        small {
+            font-size: 80%
+        }
+
+        sub,
+        sup {
+            font-size: 75%;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline
+        }
+
+        sub {
+            bottom: -.25em
+        }
+
+        sup {
+            top: -.5em
+        }
+
+        table {
+            text-indent: 0;
+            border-color: inherit;
+            border-collapse: collapse
+        }
+
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            font-family: inherit;
+            font-feature-settings: inherit;
+            font-variation-settings: inherit;
+            font-size: 100%;
+            font-weight: inherit;
+            line-height: inherit;
+            letter-spacing: inherit;
+            color: inherit;
+            margin: 0;
+            padding: 0
+        }
+
+        button,
+        select {
+            text-transform: none
+        }
+
+        button,
+        input:where([type=button]),
+        input:where([type=reset]),
+        input:where([type=submit]) {
+            -webkit-appearance: button;
+            background-color: transparent;
+            background-image: none
+        }
+
+        :-moz-focusring {
+            outline: auto
+        }
+
+        :-moz-ui-invalid {
+            box-shadow: none
+        }
+
+        progress {
+            vertical-align: baseline
+        }
+
+        ::-webkit-inner-spin-button,
+        ::-webkit-outer-spin-button {
+            height: auto
+        }
+
+        [type=search] {
+            -webkit-appearance: textfield;
+            outline-offset: -2px
+        }
+
+        ::-webkit-search-decoration {
+            -webkit-appearance: none
+        }
+
+        ::-webkit-file-upload-button {
+            -webkit-appearance: button;
+            font: inherit
+        }
+
+        summary {
+            display: list-item
+        }
+
+        blockquote,
+        dd,
+        dl,
+        figure,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        hr,
+        p,
+        pre {
+            margin: 0
+        }
+
+        fieldset {
+            margin: 0;
+            padding: 0
+        }
+
+        legend {
+            padding: 0
+        }
+
+        menu,
+        ol,
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+        dialog {
+            padding: 0
+        }
+
+        textarea {
+            resize: vertical
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            opacity: 1;
+            color: #9ca3af
+        }
+
+        [role=button],
+        button {
+            cursor: pointer
+        }
+
+        :disabled {
+            cursor: default
+        }
+
+        audio,
+        canvas,
+        embed,
+        iframe,
+        img,
+        object,
+        svg,
+        video {
+            display: block;
+            vertical-align: middle
+        }
+
+        img,
+        video {
+            max-width: 100%;
+            height: auto
+        }
+
+        [hidden]:where(:not([hidden=until-found])) {
+            display: none
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        .mb-2 {
+            margin-bottom: 0.5rem
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem
+        }
+
+        .mb-6 {
+            margin-bottom: 1.5rem
+        }
+
+        .mb-8 {
+            margin-bottom: 2rem
+        }
+
+        .mb-3 {
+            margin-bottom: 0.75rem
+        }
+
+        .mt-4 {
+            margin-top: 1rem
+        }
+
+        .flex {
+            display: flex
+        }
+
+        .hidden {
+            display: none
+        }
+
+        .h-6 {
+            height: 1.5rem
+        }
+
+        .h-12 {
+            height: 3rem
+        }
+
+        .min-h-screen {
+            min-height: 100vh
+        }
+
+        .w-12 {
+            width: 3rem
+        }
+
+        .max-w-3xl {
+            max-width: 48rem
+        }
+
+        .flex-col {
+            flex-direction: column
+        }
+
+        .items-center {
+            align-items: center
+        }
+
+        .justify-center {
+            justify-content: center
+        }
+
+        .justify-between {
+            justify-content: space-between
+        }
+
+        .gap-4 {
+            gap: 1rem
+        }
+
+        .gap-3 {
+            gap: 0.75rem
+        }
+
+        .overflow-hidden {
+            overflow: hidden
+        }
+
+        .rounded-full {
+            border-radius: 9999px
+        }
+
+        .p-6 {
+            padding: 1.5rem
+        }
+
+        .p-8 {
+            padding: 2rem
+        }
+
+        .p-4 {
+            padding: 1rem
+        }
+
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem
+        }
+
+        .py-8 {
+            padding-top: 2rem;
+            padding-bottom: 2rem
+        }
+
+        .text-center {
+            text-align: center
+        }
+
+        .font-poppins {
+            font-family: Poppins, sans-serif
+        }
+
+        .font-orbitron {
+            font-family: Orbitron, sans-serif
+        }
+
+        .text-2xl {
+            font-size: 1.5rem;
+            line-height: 2rem
+        }
+
+        .text-3xl {
+            font-size: 1.875rem;
+            line-height: 2.25rem
+        }
+
+        .text-5xl {
+            font-size: 3rem;
+            line-height: 1
+        }
+
+        .text-8xl {
+            font-size: 6rem;
+            line-height: 1
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+            line-height: 1.25rem
+        }
+
+        .text-xl {
+            font-size: 1.25rem;
+            line-height: 1.75rem
+        }
+
+        .text-xs {
+            font-size: 0.75rem;
+            line-height: 1rem
+        }
+
+        .text-lg {
+            font-size: 1.125rem;
+            line-height: 1.75rem
+        }
+
+        .font-black {
+            font-weight: 900
+        }
+
+        .font-bold {
+            font-weight: 700
+        }
+
+        .tracking-wider {
+            letter-spacing: 0.05em
+        }
+
+        .text-white {
+            --tw-text-opacity: 1;
+            color: rgb(255 255 255 / var(--tw-text-opacity, 1))
+        }
+
+        .text-white\/60 {
+            color: rgb(255 255 255 / 0.6)
+        }
+
+        .text-white\/70 {
+            color: rgb(255 255 255 / 0.7)
+        }
+
+        .text-yellow-400 {
+            --tw-text-opacity: 1;
+            color: rgb(250 204 21 / var(--tw-text-opacity, 1))
+        }
+
+        .text-red-400 {
+            --tw-text-opacity: 1;
+            color: rgb(248 113 113 / var(--tw-text-opacity, 1))
+        }
+
+        @media (min-width: 640px) {
+            .sm\:flex-row {
+                flex-direction: row
+            }
+
+            .sm\:p-8 {
+                padding: 2rem
+            }
+
+            .sm\:py-12 {
+                padding-top: 3rem;
+                padding-bottom: 3rem
+            }
+
+            .sm\:text-3xl {
+                font-size: 1.875rem;
+                line-height: 2.25rem
+            }
+        }
+    </style>
+
+<script src="js/utm-capture.js"></script>
+<script async="" defer="" src="js/pixel.js"></script></head>
+
+<body class="min-h-screen font-poppins" style="background: #020D0B; margin: 0; padding: 0;">
+    <style>
+        html {
+            background: #020D0B;
+        }
+    </style>
+
+    <div class="ambient-bg" aria-hidden="true"></div>
+
+    <div class="page-content">
+
+        <!-- Decoração diagonal no topo -->
+        <div class="h-6 overflow-hidden">
+            <svg width="100%" viewBox="0 0 1440 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="gradQuiz" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#00B89C"></stop>
+                        <stop offset="50%" stop-color="#FF6B00"></stop>
+                        <stop offset="100%" stop-color="#00B89C"></stop>
+                    </linearGradient>
+                </defs>
+                <path d="M0 23.6899H248.724L270.737 5.17356C272.873 3.03632 275.77 1.8349 278.792 1.8335H1440" stroke="url(#gradQuiz)" stroke-width="2" stroke-miterlimit="10"></path>
+                <path d="M248.546 23.3337H0V18.7046H253.887L248.546 23.3337Z" fill="url(#gradQuiz)"></path>
+            </svg>
+        </div>
+
+        <main class="max-w-3xl mx-auto px-4 py-8 sm:py-12">
+
+            <!-- Cabeçalho -->
+            <div class="text-center mb-6">
+                <h1 class="neon-title text-2xl sm:text-3xl font-bold mb-2">QUIZ DA COPA DO MUNDO</h1>
+                <p class="text-white/60 text-sm">Acerte as perguntas e avance para a roleta de descontos.</p>
+            </div>
+
+            <!-- Barra de progresso + placar -->
+            <div class="mb-6" id="progressWrap">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-white/70 font-orbitron text-xs tracking-wider" id="progressText">PERGUNTA 1 DE 8</span>
+                    <span class="score-chip"><i class="fas fa-star"></i> <span id="scoreChip">0</span>/8</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+                </div>
+            </div>
+
+            <!-- Quiz Container -->
+            <div>
+                <div id="quizContainer" class="ff-quiz-card p-6 sm:p-8">
+                <div class="pop-in">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="ff-question-number w-12 h-12 rounded-full flex items-center justify-center font-orbitron font-black text-xl">
+                            1
+                        </div>
+                    </div>
+
+                    <h2 class="text-2xl font-bold text-white mb-8" style="text-shadow: 0 2px 10px rgba(0,0,0,0.3);">Qual país venceu mais Copas do Mundo na história?</h2>
+
+                    <div id="options">
+                        
+                    <div class="ff-quiz-option p-4 mb-3 flex items-center gap-4" tabindex="0" role="button" data-index="0" onclick="selectAnswer(0)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectAnswer(0);}">
+                        <div class="opt-letter">A</div>
+                        <span class="text-white text-lg" style="text-shadow: 0 1px 4px rgba(0,0,0,0.2);">Alemanha</span>
+                    </div>
+                
+                    <div class="ff-quiz-option p-4 mb-3 flex items-center gap-4" tabindex="0" role="button" data-index="1" onclick="selectAnswer(1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectAnswer(1);}">
+                        <div class="opt-letter">B</div>
+                        <span class="text-white text-lg" style="text-shadow: 0 1px 4px rgba(0,0,0,0.2);">Itália</span>
+                    </div>
+                
+                    <div class="ff-quiz-option p-4 mb-3 flex items-center gap-4" tabindex="0" role="button" data-index="2" onclick="selectAnswer(2)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectAnswer(2);}">
+                        <div class="opt-letter">C</div>
+                        <span class="text-white text-lg" style="text-shadow: 0 1px 4px rgba(0,0,0,0.2);">Brasil</span>
+                    </div>
+                
+                    <div class="ff-quiz-option p-4 mb-3 flex items-center gap-4" tabindex="0" role="button" data-index="3" onclick="selectAnswer(3)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectAnswer(3);}">
+                        <div class="opt-letter">D</div>
+                        <span class="text-white text-lg" style="text-shadow: 0 1px 4px rgba(0,0,0,0.2);">Argentina</span>
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+
+                <!-- Resultado Final -->
+                <div id="resultContainer" class="hidden ff-quiz-card p-8 text-center">
+                    <div class="mb-6">
+                        <i class="fas fa-trophy text-8xl text-yellow-400" style="filter: drop-shadow(0 4px 12px rgba(255, 215, 0, 0.5));"></i>
+                    </div>
+                    <h2 class="text-3xl font-orbitron font-bold mb-4 neon-title">QUIZ COMPLETO!</h2>
+                    <p class="text-white text-xl mb-2" style="text-shadow: 0 2px 8px rgba(0,0,0,0.4);">Você acertou</p>
+                    <p class="text-5xl font-orbitron font-black mb-6" style="color: #FFD700; text-shadow: 0 2px 10px rgba(255, 215, 0, 0.5);">
+                        <span id="finalScore">0</span>/8
+                    </p>
+                    <p class="text-white mb-8" id="resultMessage" style="text-shadow: 0 2px 8px rgba(0,0,0,0.3);"></p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="roleta.html" class="ff-result-btn">
+                            <i class="fas fa-bullseye"></i> GIRAR A ROLETA
+                            <svg width="15" height="11" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M1.34241 10.96H0V0.0400391H1.71674L6.98958 5.31287L1.34241 10.96Z" fill="#ffffff"></path>
+                                <path d="M7.64783 0.0400391V1.58252L10.7715 4.71266L12.0881 3.39607L8.72563 0.0400391H7.64783Z" fill="#ffffff"></path>
+                                <path d="M7.64783 10.8117H8.95797L14.1985 5.57113L12.8819 4.26099L7.64783 9.4951V10.8117Z" fill="#ffffff"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div><!-- /page-content -->
+
+    <script>
+        // Áudios de feedback
+        const acertoAudio = new Audio('assets/acerto.mp3');
+        const erroAudio = new Audio('assets/erro.mp3');
+
+        // Dados do quiz (do PHP)
+        const questions = [{ "question": "Qual pa\u00eds venceu mais Copas do Mundo na hist\u00f3ria?", "options": ["Alemanha", "It\u00e1lia", "Brasil", "Argentina"], "correct": 2 }, { "question": "Em qual pa\u00eds foi realizada a Copa do Mundo de 2022?", "options": ["Catar", "R\u00fassia", "Brasil", "Fran\u00e7a"], "correct": 0 }, { "question": "Qual sele\u00e7\u00e3o foi campe\u00e3 da Copa do Mundo de 2022?", "options": ["Fran\u00e7a", "Brasil", "Cro\u00e1cia", "Argentina"], "correct": 3 }, { "question": "Quem \u00e9 o maior artilheiro da hist\u00f3ria das Copas do Mundo?", "options": ["Ronaldo", "Pel\u00e9", "Miroslav Klose", "Gerd M\u00fcller"], "correct": 2 }, { "question": "Quantas vezes o Brasil foi campe\u00e3o mundial?", "options": ["4 vezes", "6 vezes", "3 vezes", "5 vezes"], "correct": 3 }, { "question": "Qual foi o artilheiro da Copa do Mundo de 2022?", "options": ["Lionel Messi", "Richarlison", "Neymar", "Kylian Mbapp\u00e9"], "correct": 3 }, { "question": "Em que ano o Brasil ganhou sua primeira Copa do Mundo?", "options": ["1950", "1962", "1970", "1958"], "correct": 3 }, { "question": "Qual jogador \u00e9 o \u00fanico a vencer 3 Copas do Mundo?", "options": ["Ronaldo", "Zidane", "Messi", "Pel\u00e9"], "correct": 3 }];
+        let currentQuestion = 0;
+        let score = 0;
+        let answered = false;
+
+        // Elementos
+        const quizContainer = document.getElementById('quizContainer');
+        const resultContainer = document.getElementById('resultContainer');
+        const progressFill = document.getElementById('progressFill');
+        const progressText = document.getElementById('progressText');
+        const scoreChip = document.getElementById('scoreChip');
+        const progressWrap = document.getElementById('progressWrap');
+
+        // Atualiza barra de progresso e placar
+        function updateProgress() {
+            const pct = (currentQuestion / questions.length) * 100;
+            progressFill.style.width = pct + '%';
+            progressText.textContent = `PERGUNTA ${Math.min(currentQuestion + 1, questions.length)} DE ${questions.length}`;
+            scoreChip.textContent = score;
+        }
+
+        // Carregar pergunta
+        function loadQuestion() {
+            if (currentQuestion >= questions.length) {
+                showResults();
+                return;
+            }
+
+            answered = false;
+            const q = questions[currentQuestion];
+            updateProgress();
+
+            let optionsHTML = '';
+            q.options.forEach((option, index) => {
+                optionsHTML += `
+                    <div class="ff-quiz-option p-4 mb-3 flex items-center gap-4" tabindex="0" role="button"
+                         data-index="${index}" onclick="selectAnswer(${index})"
+                         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectAnswer(${index});}">
+                        <div class="opt-letter">${String.fromCharCode(65 + index)}</div>
+                        <span class="text-white text-lg" style="text-shadow: 0 1px 4px rgba(0,0,0,0.2);">${option}</span>
+                    </div>
+                `;
+            });
+
+            quizContainer.innerHTML = `
+                <div class="pop-in">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="ff-question-number w-12 h-12 rounded-full flex items-center justify-center font-orbitron font-black text-xl">
+                            ${currentQuestion + 1}
+                        </div>
+                    </div>
+
+                    <h2 class="text-2xl font-bold text-white mb-8" style="text-shadow: 0 2px 10px rgba(0,0,0,0.3);">${q.question}</h2>
+
+                    <div id="options">
+                        ${optionsHTML}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Selecionar resposta
+        function selectAnswer(index) {
+            if (answered) return;
+            answered = true;
+
+            // Marcar opção selecionada
+            const options = document.querySelectorAll('.ff-quiz-option');
+            options[index].classList.add('selected');
+
+            // Validar resposta localmente
+            const q = questions[currentQuestion];
+            const isCorrect = (index === q.correct);
+
+            if (isCorrect) {
+                score++;
+            }
+
+            options.forEach((option, i) => {
+                option.style.pointerEvents = 'none';
+
+                if (i === index && !isCorrect) {
+                    option.classList.add('incorrect');
+                }
+                if (i === q.correct) {
+                    option.classList.add('correct');
+                }
+            });
+
+            // Atualizar pontuação
+            scoreChip.textContent = score;
+
+            // Efeito sonoro e visual
+            if (isCorrect) {
+                acertoAudio.currentTime = 0;
+                acertoAudio.play().catch(() => { });
+                showFeedback('✓ Correto!', 'text-green-400');
+            } else {
+                erroAudio.currentTime = 0;
+                erroAudio.play().catch(() => { });
+                showFeedback('✗ Incorreto!', 'text-red-400');
+            }
+
+            // Avançar automaticamente após 1.5 segundos
+            setTimeout(() => {
+                currentQuestion++;
+                loadQuestion();
+            }, 1500);
+        }
+
+        // Mostrar feedback
+        function showFeedback(message, colorClass) {
+            const feedback = document.createElement('div');
+            feedback.className = `text-center text-2xl font-orbitron font-bold ${colorClass} mt-4 pop-in`;
+            feedback.textContent = message;
+            document.getElementById('options').appendChild(feedback);
+        }
+
+        // Mostrar resultados
+        function showResults() {
+            progressFill.style.width = '100%';
+            progressWrap.classList.add('hidden');
+            quizContainer.classList.add('hidden');
+            resultContainer.classList.remove('hidden');
+            resultContainer.classList.add('pop-in');
+
+            document.getElementById('finalScore').textContent = score;
+
+            let message = '';
+            const percentage = (score / questions.length) * 100;
+
+            if (percentage === 100) {
+                message = 'Incrível! O árbitro te autoriza! Você é um craque da Copa do Mundo! 🏆⚽';
+            } else if (percentage >= 80) {
+                message = 'Excelente! Você está pronto para a Copa do Mundo 2026! ⚽';
+            } else if (percentage >= 60) {
+                message = 'Muito bem! Continue estudando o futebol mundial!';
+            } else if (percentage >= 40) {
+                message = 'Bom esforço! Estude mais sobre a história das Copas do Mundo!';
+            } else {
+                message = 'Você precisa conhecer melhor a história da Copa do Mundo!';
+            }
+
+            document.getElementById('resultMessage').textContent = message;
+
+            // Salvar pontuação na sessão para a roleta
+            sessionStorage.setItem('quizScore', score);
+            sessionStorage.setItem('quizCompleted', 'true');
+        }
+
+        // Resetar quiz
+        function resetQuiz() {
+            currentQuestion = 0;
+            score = 0;
+
+            progressWrap.classList.remove('hidden');
+            resultContainer.classList.add('hidden');
+            quizContainer.classList.remove('hidden');
+
+            loadQuestion();
+        }
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', () => {
+            loadQuestion();
+        });
+    </script>
+
+    <!-- Animações estilo Framer Motion (Motion One — mesma API, JS puro/sem React) -->
+    <script type="module">
+        import { animate, stagger } from 'https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm';
+
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!reduce) {
+            const container = document.getElementById('quizContainer');
+
+            // Anima a entrada de cada nova pergunta + alternativas em cascata
+            function animateQuestion() {
+                const heading = container.querySelector('h2');
+                if (heading) {
+                    animate(heading, { opacity: [0, 1], transform: ['translateY(14px)', 'translateY(0)'] },
+                        { duration: 0.4, easing: [0.22, 1, 0.36, 1] });
+                }
+                const opts = container.querySelectorAll('.ff-quiz-option');
+                if (opts.length) {
+                    animate(opts, { opacity: [0, 1], transform: ['translateX(-18px)', 'translateX(0)'] },
+                        { duration: 0.45, delay: stagger(0.08), easing: [0.22, 1, 0.36, 1] });
+                }
+            }
+
+            // Observa o container e dispara a animação sempre que a pergunta troca
+            const observer = new MutationObserver(() => animateQuestion());
+            observer.observe(container, { childList: true });
+
+            // Pop spring na revelação do resultado final
+            const result = document.getElementById('resultContainer');
+            const resultObserver = new MutationObserver(() => {
+                if (!result.classList.contains('hidden')) {
+                    animate(result, { opacity: [0, 1], transform: ['scale(0.94)', 'scale(1)'] },
+                        { type: 'spring', stiffness: 280, damping: 22 });
+                    const trophy = result.querySelector('.fa-trophy');
+                    if (trophy) animate(trophy, { transform: ['scale(0) rotate(-30deg)', 'scale(1) rotate(0deg)'] },
+                        { type: 'spring', stiffness: 260, damping: 12, delay: 0.15 });
+                    resultObserver.disconnect();
+                }
+            });
+            resultObserver.observe(result, { attributes: true, attributeFilter: ['class'] });
+        }
+    </script>
+
+    <!-- UTMify -->
+    <script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
+
+    <script>
+      window.pixelId = "6a46d17b31c4349c3fb4f40c";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(a);
+    </script>
+    <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" data-cf-beacon="{" version":"2024.11.0","token":"04724dc4e01b47459af393769bd8b3da","r":1,"server_timing":{"name":{"cfcachestatus":true,"cfedge":true,"cfextpri":true,"cfl4":true,"cforigin":true,"cfspeedbrain":true},"location_startswith":null}}"=""></script>
+
+
+
+
+</body></html>
