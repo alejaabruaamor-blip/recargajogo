@@ -1,2 +1,0 @@
-# recargajogo
-seja bem vindo
