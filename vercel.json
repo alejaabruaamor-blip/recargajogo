@@ -26,12 +26,12 @@
     },
     {
       "source": "/loja/checkout.html",
-      "destination": "/apipix/",
+      "destination": "/",
       "permanent": false
     },
     {
       "source": "/loja/checkout",
-      "destination": "/apipix/",
+      "destination": "/",
       "permanent": false
     },
     {
