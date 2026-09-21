@@ -60,12 +60,22 @@
       "permanent": false
     },
     {
+      "source": "/ebookdesign/iof/",
+      "destination": "/rec/up1/",
+      "permanent": false
+    },
+    {
       "source": "/ebookdesign/iof",
       "destination": "/rec/up1/",
       "permanent": false
     },
     {
       "source": "/apipix",
+      "destination": "/ebookdesign/",
+      "permanent": false
+    },
+    {
+      "source": "/apipix/",
       "destination": "/ebookdesign/",
       "permanent": false
     },
