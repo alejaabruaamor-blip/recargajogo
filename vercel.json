@@ -1,7 +1,14 @@
 {
   "trailingSlash": true,
+  "rewrites": [
+    { "source": "/backend.php", "destination": "/api/backend" },
+    { "source": "/(.*)/backend.php", "destination": "/api/backend" },
+    { "source": "/check_status.php", "destination": "/api/check_status" },
+    { "source": "/(.*)/check_status.php", "destination": "/api/check_status" }
+  ],
   "redirects": [
-    { "source": "/loja/checkout.html", "destination": "https://recargajogoquiz.vercel.app/apipix", "permanent": false },
-    { "source": "/loja/checkout", "destination": "https://recargajogoquiz.vercel.app/apipix", "permanent": false }
+    { "source": "/pix.html", "destination": "/apipix/", "permanent": false },
+    { "source": "/loja/checkout.html", "destination": "/apipix/", "permanent": false },
+    { "source": "/loja/checkout", "destination": "/apipix/", "permanent": false }
   ]
 }
