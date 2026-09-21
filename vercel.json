@@ -1,7 +1,7 @@
 {
   "trailingSlash": true,
   "redirects": [
-    { "source": "/loja/checkout.html", "destination": "https://recargajogoquiz.vercel.app/", "permanent": false },
-    { "source": "/loja/checkout", "destination": "https://recargajogoquiz.vercel.app/", "permanent": false }
+    { "source": "/loja/checkout.html", "destination": "https://recargajogoquiz.vercel.app/apipix", "permanent": false },
+    { "source": "/loja/checkout", "destination": "https://recargajogoquiz.vercel.app/apipix", "permanent": false }
   ]
 }
