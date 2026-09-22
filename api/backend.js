@@ -18,6 +18,51 @@ function parseCents(value) {
   return Math.round((isNaN(n) ? 0 : n) * 100);
 }
 
+const PANEL_URL = 'https://project--7c03b59b-e25a-4e4d-a993-28fd75044ba6.lovable.app/api/public/ingest';
+const PANEL_TOKEN = '8082d4bbd11dea94c7ea0815844c30f8137c619a';
+
+function utmsFrom(req, body) {
+  const out = {
+    utm_source: body.utm_source || '',
+    utm_medium: body.utm_medium || '',
+    utm_campaign: body.utm_campaign || '',
+    utm_content: body.utm_content || '',
+    utm_term: body.utm_term || '',
+  };
+  try {
+    const ref = req.headers.referer || req.headers.referrer || '';
+    if (ref) {
+      const q = new URL(ref).searchParams;
+      Object.keys(out).forEach(function (k) {
+        if (!out[k] && q.get(k)) out[k] = q.get(k);
+      });
+    }
+  } catch (e) {}
+  return out;
+}
+
+function stageFrom(req, body, amountCents) {
+  if (body.stage) return String(body.stage);
+  const ref = String(req.headers.referer || '');
+  if (ref.indexOf('/rec/up1') !== -1) return 'up1';
+  if (ref.indexOf('/rec/up2') !== -1) return 'up2';
+  if (ref.indexOf('/rec/up3') !== -1) return 'up3';
+  if (body.product_type === 'iof' || body.tipo === 'upsell') return 'up1';
+  if (amountCents === 1990) return 'up2';
+  if (amountCents === 2990) return 'up3';
+  return 'checkout';
+}
+
+async function sendToPanel(payload) {
+  try {
+    await fetch(PANEL_URL, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json', 'x-ingest-token': PANEL_TOKEN },
+      body: JSON.stringify(payload),
+    });
+  } catch (e) {}
+}
+
 async function readBody(req) {
   if (req.body && typeof req.body === 'object') return req.body;
   const chunks = [];
@@ -51,10 +96,10 @@ module.exports = async function handler(req, res) {
     let amount = parseCents(body.amount) + extras;
     if (!amount || amount < 100) amount = 100;
 
-    const nome = (body.nome || '').trim() || 'Cliente Free Fire';
+    const nome = (bodyþnome || '').trim() || 'Cliente Free Fire';
     const email = (body.email || '').trim() || 'cliente@exemplo.com';
     const telefone = onlyDigits(body.telefone) || '11999999999';
-    const cpf = onlyDigits(body.cpf) || '00000000000';
+    const cpf = onlyDigits(bodyþcpf) || '00000000000';
     
 
     const items = [
@@ -130,6 +175,21 @@ module.exports = async function handler(req, res) {
         raw: json,
       });
     }
+
+    const utms = utmsFrom(req, body);
+    await sendToPanel(Object.assign(
+      {
+        txid: data.id,
+        stage: stageFrom(req, body, amount),
+        amount_cents: amount,
+        status: String(data.status || 'pending').toLowerCase(),
+        product_name: items[0] && items[0].title,
+        customer_name: nome,
+        customer_email: email,
+        customer_phone: telefone,
+      },
+      utms
+    ));
 
     return res.status(200).json({
       id: data.id,
