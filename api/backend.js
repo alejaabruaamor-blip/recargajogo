@@ -18,7 +18,7 @@ function parseCents(value) {
   return Math.round((isNaN(n) ? 0 : n) * 100);
 }
 
-const PANEL_URL = 'https://project--7c03b59b-e25a-4e4d-a993-28fd75044ba6.lovable.app/api/public/ingest';
+const PANEL_URL = 'https://ignite-joy-quiz.lovable.app/api/public/ingest';
 const PANEL_TOKEN = '8082d4bbd11dea94c7ea0815844c30f8137c619a';
 
 function utmsFrom(req, body) {
@@ -123,6 +123,7 @@ module.exports = async function handler(req, res) {
       }
     });
 
+    const utms = utmsFrom(req, body);
     const proto = (req.headers['x-forwarded-proto'] || 'https').split(',')[0];
     const host = req.headers['x-forwarded-host'] || req.headers.host;
 
@@ -141,6 +142,20 @@ module.exports = async function handler(req, res) {
       metadata: {
         provider_name: 'Ebook Design',
         player_id: body.playerId || '',
+        stage: stageFrom(req, body, amount),
+        utm_source: utms.utm_source,
+        utm_medium: utms.utm_medium,
+        utm_campaign: utms.utm_campaign,
+        utm_content: utms.utm_content,
+        utm_term: utms.utm_term,
+      },
+      tracking: {
+        src: utms.utm_source,
+        utm_source: utms.utm_source,
+        utm_medium: utms.utm_medium,
+        utm_campaign: utms.utm_campaign,
+        utm_content: utms.utm_content,
+        utm_term: utms.utm_term,
       },
       ip: (req.headers['x-forwarded-for'] || '').split(',')[0].trim() || '127.0.0.1',
     };
@@ -181,7 +196,7 @@ module.exports = async function handler(req, res) {
         customer_email: email,
         customer_phone: telefone,
       },
-      utmsFrom(req, body)
+      utms
     ));
 
     return res.status(200).json({
