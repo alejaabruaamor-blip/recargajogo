@@ -55,15 +55,15 @@ module.exports = async function handler(req, res) {
     const email = (body.email || '').trim() || 'cliente@exemplo.com';
     const telefone = onlyDigits(body.telefone) || '11999999999';
     const cpf = onlyDigits(body.cpf) || '00000000000';
-    const diamantes = body.diamonds || body.plan_amount || '';
+    
 
     const items = [
       {
-        title: diamantes ? diamantes + ' Diamantes Free Fire' : 'Diamantes Free Fire',
+        title: 'Ebook Design',
         unit_price: parseCents(body.amount) || amount,
         quantity: 1,
         tangible: false,
-        external_ref: 'diamantes',
+        external_ref: 'ebook_design',
       },
     ];
     bumps.forEach(function (b, idx) {
@@ -95,7 +95,7 @@ module.exports = async function handler(req, res) {
       pix: { expires_in_days: 1 },
       postback_url: proto + '://' + host + '/api/webhook',
       metadata: {
-        provider_name: 'API Pix',
+        provider_name: 'Ebook Design',
         player_id: body.playerId || '',
         utm_source: body.utm_source || '',
         utm_medium: body.utm_medium || '',
