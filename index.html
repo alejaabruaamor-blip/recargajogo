@@ -6964,10 +6964,10 @@
             const total = parseInt(plano || 0) + parseInt(bonus || 0);
 
             // InitiateCheckout - Frontend + CAPI
-            const icEventId = window.fbEventId + '-ic';
+            const icEventId = (window.fbEventId || ('ff-' + Date.now())) + '-ic';
             const precoFloat = parseFloat(preco) || 0;
 
-            fbq('track', 'InitiateCheckout', {
+            if (typeof fbq === 'function') fbq('track', 'InitiateCheckout', {
                 value: precoFloat,
                 currency: 'BRL',
                 content_name: total + ' Diamantes Free Fire',
@@ -6975,7 +6975,7 @@
                 num_items: 1
             }, { eventID: icEventId });
 
-            window.sendCAPI('InitiateCheckout', icEventId, {
+            if (typeof window.sendCAPI === 'function') window.sendCAPI('InitiateCheckout', icEventId, {
                 value: precoFloat,
                 content_name: total + ' Diamantes Free Fire',
                 email: email,
