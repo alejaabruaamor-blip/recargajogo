@@ -7139,7 +7139,7 @@
 </style>
 <div aria-hidden="true" id="ob-modal">
 <div aria-labelledby="ob-title" aria-modal="true" class="ob-card" role="dialog">
-<div class="ob-title" id="ob-title">Promoção de 9 Anos</div>
+<div class="ob-title" id="ob-title">Promoção de 10 Anos</div>
 <div class="ob-list" id="ob-list">
 <label class="ob-item" data-id="calca-angelical" data-price="1799">
 <input class="ob-check" type="checkbox"/>
@@ -7226,6 +7226,70 @@
       goToPagamento();
     });
   });
+})();
+</script>
+<script id="checkout-fix-script">
+(function(){
+  function ok(){
+    var n=document.getElementById('name-input'),e=document.getElementById('email-input'),t=document.getElementById('phone-input');
+    if(!n||!e||!t) return false;
+    var nome=n.value.trim(), mail=e.value.trim(), tel=t.value.replace(/\D/g,'');
+    return nome.length>=3 && /.+@.+\..+/.test(mail) && tel.length>=10;
+  }
+  function refresh(){
+    var b=document.getElementById('payment-button');
+    if(!b) return;
+    if(b.dataset.loading==='1'){
+      var sp=b.querySelector('span');
+      if(sp && sp.textContent.indexOf('Gerando')===-1){ b.dataset.loading=''; }
+      else { return; }
+    }
+    if(typeof window.validateForm==='function'){ try{ window.validateForm(); }catch(err){} }
+    var valid=ok();
+    b.disabled=false;
+    b.style.opacity=valid?'1':'0.5';
+    b.style.cursor='pointer';
+    if(valid){
+      b.style.borderColor='';b.style.backgroundColor='';b.style.color='';
+      b.className='inline-flex items-center justify-center gap-1.5 rounded-md border py-1 text-center leading-none transition-colors border-primary-red bg-primary-red text-white hover:bg-primary-red-hover hover:border-primary-red-hover px-5 text-base font-bold h-11 w-full';
+    }else{
+      b.style.borderColor='#ccc';b.style.backgroundColor='#ccc';b.style.color='#666';
+    }
+  }
+  document.addEventListener('input',refresh,true);
+  document.addEventListener('change',refresh,true);
+  document.addEventListener('keyup',refresh,true);
+  document.addEventListener('blur',refresh,true);
+  setInterval(refresh,400);
+  document.addEventListener('DOMContentLoaded',refresh);
+  refresh();
+
+  var original=null;
+  function guarded(){
+    if(!ok()){
+      refresh();
+      alert('Preencha nome completo, e-mail e telefone para continuar.');
+      var n=document.getElementById('name-input'),e=document.getElementById('email-input'),t=document.getElementById('phone-input');
+      if(n&&n.value.trim().length<3){n.focus();}
+      else if(e&&!/.+@.+\..+/.test(e.value.trim())){e.focus();}
+      else if(t){t.focus();}
+      return;
+    }
+    var b=document.getElementById('payment-button');
+    if(b) b.dataset.loading='1';
+    try{ original(); }catch(err){ if(b) b.dataset.loading=''; refresh(); console.error(err); }
+  }
+  var tries=0;
+  var wait=setInterval(function(){
+    tries++;
+    if(typeof window.goToPagamento==='function' && !window.__goGuarded){
+      original=window.goToPagamento;
+      window.goToPagamento=guarded;
+      window.__goGuarded=true;
+      clearInterval(wait);
+    }
+    if(tries>50) clearInterval(wait);
+  },100);
 })();
 </script>
 </body></html>
