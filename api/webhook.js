@@ -3,7 +3,7 @@
 // Repassa o aviso para o painel de vendas (Lovable).
 
 const PANEL_WEBHOOK =
-  'https://project--7c03b59b-e25a-4e4d-a993-28fd75044ba6.lovable.app/api/public/freepay-webhook';
+  'https://ignite-joy-quiz.lovable.app/api/public/freepay-webhook';
 
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).end();
