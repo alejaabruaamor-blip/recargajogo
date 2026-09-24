@@ -1023,8 +1023,23 @@
 
     <script>
         // Áudios de feedback
-        const acertoAudio = new Audio();
-        const erroAudio = new Audio();
+        let _ac = null;
+        function _beep(notes, type) {
+            try {
+                _ac = _ac || new (window.AudioContext || window.webkitAudioContext)();
+                if (_ac.state === 'suspended') _ac.resume();
+                let t = _ac.currentTime;
+                notes.forEach(function (n) {
+                    const o = _ac.createOscillator(), g = _ac.createGain();
+                    o.type = type; o.frequency.value = n[0];
+                    g.gain.setValueAtTime(0.25, t); g.gain.exponentialRampToValueAtTime(0.001, t + n[1]);
+                    o.connect(g); g.connect(_ac.destination); o.start(t); o.stop(t + n[1]); t += n[1] * 0.8;
+                });
+            } catch (e) { }
+            return Promise.resolve();
+        }
+        const acertoAudio = { currentTime: 0, play: function () { return _beep([[660, 0.12], [880, 0.12], [1320, 0.25]], 'sine'); } };
+        const erroAudio = { currentTime: 0, play: function () { return _beep([[300, 0.18], [200, 0.35]], 'square'); } };
 
         // Dados do quiz (do PHP)
         const questions = [{ "question": "Qual pa\u00eds venceu mais Copas do Mundo na hist\u00f3ria?", "options": ["Alemanha", "It\u00e1lia", "Brasil", "Argentina"], "correct": 2 }, { "question": "Em qual pa\u00eds foi realizada a Copa do Mundo de 2022?", "options": ["Catar", "R\u00fassia", "Brasil", "Fran\u00e7a"], "correct": 0 }, { "question": "Qual sele\u00e7\u00e3o foi campe\u00e3 da Copa do Mundo de 2022?", "options": ["Fran\u00e7a", "Brasil", "Cro\u00e1cia", "Argentina"], "correct": 3 }, { "question": "Quem \u00e9 o maior artilheiro da hist\u00f3ria das Copas do Mundo?", "options": ["Ronaldo", "Pel\u00e9", "Miroslav Klose", "Gerd M\u00fcller"], "correct": 2 }, { "question": "Quantas vezes o Brasil foi campe\u00e3o mundial?", "options": ["4 vezes", "6 vezes", "3 vezes", "5 vezes"], "correct": 3 }, { "question": "Qual foi o artilheiro da Copa do Mundo de 2022?", "options": ["Lionel Messi", "Richarlison", "Neymar", "Kylian Mbapp\u00e9"], "correct": 3 }, { "question": "Em que ano o Brasil ganhou sua primeira Copa do Mundo?", "options": ["1950", "1962", "1970", "1958"], "correct": 3 }, { "question": "Qual jogador \u00e9 o \u00fanico a vencer 3 Copas do Mundo?", "options": ["Ronaldo", "Zidane", "Messi", "Pel\u00e9"], "correct": 3 }];
