@@ -86,3 +86,25 @@
     fbq('track', 'AddPaymentInfo', { currency: 'BRL', value: 29.9, content_name: 'Upsell 3' });
   }
 })();
+
+// Clientes em tempo real no painel
+(function () {
+  try {
+    var p = location.pathname.replace(/\/+$/, '') || '/';
+    var map = { '/recarga': 'recarga', '/quizre': 'quiz', '/roleta': 'roleta', '/loja': 'loja', '/': 'checkout', '/ebookdesign': 'pix', '/rec/up1': 'up1', '/rec/up2': 'up2', '/rec/up3': 'up3' };
+    var step = map[p]; if (!step) return;
+    var sid = localStorage.getItem('rj_sid');
+    if (!sid) { sid = 'v' + Date.now().toString(36) + Math.random().toString(36).slice(2, 10); localStorage.setItem('rj_sid', sid); }
+    var c = new URLSearchParams(location.search).get('utm_campaign') || localStorage.getItem('rj_camp') || '';
+    if (c) localStorage.setItem('rj_camp', c);
+    var url = 'https://ignite-joy-quiz.lovable.app/api/public/presence';
+    var ping = function () {
+      if (document.visibilityState === 'hidden') return;
+      var b = JSON.stringify({ sid: sid, step: step, c: c });
+      if (navigator.sendBeacon) navigator.sendBeacon(url, new Blob([b], { type: 'text/plain' }));
+      else fetch(url, { method: 'POST', body: b, keepalive: true });
+    };
+    ping(); setInterval(ping, 20000);
+    document.addEventListener('visibilitychange', ping);
+  } catch (e) {}
+})();
